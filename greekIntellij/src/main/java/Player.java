@@ -9,6 +9,7 @@ public class Player {
     int x;
     int y;
     PImage sprite;
+    int spriteWidth = 25;
 
     public Player(int x,int y,String spritePath, PApplet core){
         this.x = x;
