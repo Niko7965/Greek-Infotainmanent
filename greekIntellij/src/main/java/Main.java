@@ -34,10 +34,14 @@ public class Main extends PApplet {
        r1.drawRoom();
        p1.drawPlayer();
        System.out.println(keyCode);
+       key
     }
 
     public int getKeyCode(){
-        return keyCode;
+        if(keyPressed){
+            return keyCode;
+        }
+        else return 0;
     }
 
     public void loadRooms(){
