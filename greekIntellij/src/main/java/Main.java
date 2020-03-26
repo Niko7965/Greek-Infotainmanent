@@ -5,9 +5,13 @@ import processing.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 
+
+
+
 public class Main extends PApplet {
     Room r1;
     Player p1;
+    Quiz q1;
     Room currentRoom;
     ArrayList<Room> allRooms;
     PImage img;
@@ -19,7 +23,7 @@ public class Main extends PApplet {
     }
 
     public void settings(){
-        size(1250,900);
+        size(625,450);
 
 
     }
@@ -28,7 +32,7 @@ public class Main extends PApplet {
 
         r1 = new Room("1","g5.png",this);
         p1 = new Player(10,10,"Player1.png",this,this);
-        frameRate(20);
+        q1 = new Quiz(1,this,this);
 
     }
 
