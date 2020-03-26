@@ -8,8 +8,8 @@ import static processing.core.PConstants.UP;
 public class Player {
     PApplet core;
 
-    int x;
-    int y;
+    float x;
+    float y;
     boolean moveUp=false;
     boolean moveDown=false;
     boolean moveRight=false;
@@ -26,16 +26,16 @@ public class Player {
     }
 
     public void movement(){
-        if(moveUp==true){
+        if(moveUp){
             y--;
         }
-        if(moveDown==true){
+        if(moveDown){
             y++;
         }
-        if(moveLeft==true){
+        if(moveLeft){
             x--;
         }
-        if(moveRight==true){
+        if(moveRight){
             x++;
         }
     }
@@ -47,7 +47,7 @@ public class Player {
         movement();
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),y*(core.height/18),x*(core.width/25)+(core.width/25),y*(core.height/18)+(core.height/9));
-        System.out.println(x+" "+y);
+        //System.out.println(x+" "+y);
     }
 
 }
