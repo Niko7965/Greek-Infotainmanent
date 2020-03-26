@@ -23,14 +23,15 @@ public class Main extends PApplet {
     }
 
     public void settings(){
-        size(625,450);
+        size(625*3,450*3);
+
 
 
     }
 
     public void setup(){
-
-        r1 = new Room("1","g5.png",this);
+        //frameRate(20);
+        r1 = new Room("1","g5.png","g5.png",this);
         p1 = new Player(10,10,"Player1.png",this,this);
         q1 = new Quiz(1,this,this);
 
@@ -82,11 +83,16 @@ public class Main extends PApplet {
     }
 
     public void loadRooms(){
-        File folder = new File("Images/Backgrounds");
-        File[] listOfFiles = folder.listFiles();
-        assert listOfFiles != null;
-        for(int i = 0; i<listOfFiles.length; i++){
-            allRooms.add(new Room("r"+i,listOfFiles[i].getName(),this));
+        File backgroundFolder = new File("Images/Backgrounds");
+        File[] listOfBackgrounds = backgroundFolder.listFiles();
+
+        File tileMapFolder = new File("Images/Backgrounds");
+        File[] listOfTilemaps = backgroundFolder.listFiles();
+
+        assert listOfTilemaps != null;
+        assert listOfBackgrounds != null;
+        for(int i = 0; i<listOfBackgrounds.length; i++){
+            allRooms.add(new Room("r"+i,listOfBackgrounds[i].getName(),listOfTilemaps[i].getName(),this));
         }
 
     }

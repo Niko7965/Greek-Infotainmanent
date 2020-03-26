@@ -19,9 +19,9 @@ public class Player {
     PImage sprite;
     Main main;
 
-    public Player(int x,int y,String spritePath, PApplet core, Main main){
-        this.x = x;
-        this.y = y;
+    public Player(float x,float y,String spritePath, PApplet core, Main main){
+        this.x =  x;
+        this.y =  y;
         this.core = core;
         setSprite(spritePath);
         this.main = main;
@@ -29,16 +29,17 @@ public class Player {
     }
 
     public void movement(){
-        if(moveUp){
+        if(y>0 &&moveUp&&!main.r1.SpaceUpSolid((int) x, (int) y)){
+
             y--;
         }
-        if(moveDown){
+        if(y<28 && moveDown&&!main.r1.SpaceDownSolid((int) x, (int) y)){
             y++;
         }
-        if(moveLeft){
+        if(moveLeft && !main.r1.SpaceLeftSolid((int) x, (int) y)){
             x--;
         }
-        if(moveRight){
+        if(moveRight && !main.r1.SpaceRightSolid((int) x, (int) y)){
             x++;
         }
     }
@@ -49,8 +50,8 @@ public class Player {
     public void drawPlayer(){
         movement();
         core.imageMode(CORNERS);
-        core.image(sprite,x*(core.width/25),y*(core.height/18),x*(core.width/25)+(core.width/25),y*(core.height/18)+(core.height/9));
-        //System.out.println(x+" "+y);
+        core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
+        System.out.println(x+" "+y);
     }
 
 }
