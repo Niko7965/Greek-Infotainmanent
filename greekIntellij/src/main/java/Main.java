@@ -16,7 +16,7 @@ public class Main extends PApplet {
     Room currentRoom;
     ArrayList<Room> allRooms;
     PImage img;
-    Table questions;
+
 
 
     public static void main(String[] args){
@@ -25,7 +25,7 @@ public class Main extends PApplet {
     }
 
     public void settings(){
-        size(625*3,450*3);
+        size(625,450);
 
 
 
@@ -42,7 +42,7 @@ public class Main extends PApplet {
     public void  draw(){
        r1.drawRoom();
        p1.drawPlayer();
-       q1.drawQuiz(questions.getRowCount());
+       q1.drawQuiz();
     }
 
 
