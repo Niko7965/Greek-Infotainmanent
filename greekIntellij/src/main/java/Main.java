@@ -40,7 +40,7 @@ public class Main extends PApplet {
     public void  draw(){
        r1.drawRoom();
        p1.drawPlayer();
-
+       q1.drawQuiz();
     }
 
 
@@ -96,11 +96,5 @@ public class Main extends PApplet {
         }
 
     }
-
-
-
-
-
-
 
 }
