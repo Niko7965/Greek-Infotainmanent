@@ -71,7 +71,10 @@ public class Main extends PApplet {
     }
 
     public int getKeyCode(){
-        return keyCode;
+        if(keyPressed){
+            return keyCode;
+        }
+        else return 0;
     }
 
     public void loadRooms(){
