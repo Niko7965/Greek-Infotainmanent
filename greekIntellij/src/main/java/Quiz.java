@@ -1,6 +1,7 @@
 import com.sun.org.apache.xpath.internal.objects.XString;
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.data.Table;
 import processing.event.KeyEvent;
 
 import static processing.core.PConstants.CORNERS;
@@ -16,11 +17,10 @@ public class Quiz {
     String answer;
 
 
-    public Quiz(int quizNumber, PApplet core, Main main){
 
-        question= "Hvilken digter boede på øen Lesbos";
+    public Quiz(PApplet core, Main main){
 
-        answer="Sappho";
+
 
         this.quizNumber=quizNumber;
 
@@ -29,7 +29,8 @@ public class Quiz {
     }
 
 
-    public void drawQuiz(){
+    public void drawQuiz(int quizNumber){
+        Setup.questions.getRow(quizNumber).getString(1);
         core.rectMode(CORNERS);
         core.fill(0,0,255,120);
         core.strokeWeight(4);

@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.data.Table;
 import processing.event.KeyEvent;
 
 import java.io.File;
@@ -15,6 +16,7 @@ public class Main extends PApplet {
     Room currentRoom;
     ArrayList<Room> allRooms;
     PImage img;
+    Table questions;
 
 
     public static void main(String[] args){
@@ -29,17 +31,18 @@ public class Main extends PApplet {
     }
 
     public void setup(){
+        questions=loadTable("Questions.txt");
 
         r1 = new Room("1","g5.png",this);
         p1 = new Player(10,10,"Player1.png",this,this);
-        q1 = new Quiz(1,this,this);
+        q1 = new Quiz(this,this);
 
     }
 
     public void  draw(){
        r1.drawRoom();
        p1.drawPlayer();
-       q1.drawQuiz();
+       q1.drawQuiz(questions.getRowCount());
     }
 
 
