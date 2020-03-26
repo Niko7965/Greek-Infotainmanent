@@ -5,7 +5,9 @@ import processing.event.KeyEvent;
 import static processing.core.PConstants.CORNERS;
 import static processing.core.PConstants.UP;
 
+
 public class Player {
+    //Proceesing core
     PApplet core;
 
     float x;
@@ -23,6 +25,7 @@ public class Player {
         this.core = core;
         setSprite(spritePath);
         this.main = main;
+
     }
 
     public void movement(){

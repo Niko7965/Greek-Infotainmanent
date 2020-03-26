@@ -21,12 +21,14 @@ public class Main extends PApplet {
     public void settings(){
         size(1250,900);
 
+
     }
 
     public void setup(){
+
         r1 = new Room("1","g5.png",this);
         p1 = new Player(10,10,"Player1.png",this,this);
-
+        frameRate(20);
 
     }
 
@@ -36,6 +38,8 @@ public class Main extends PApplet {
 
     }
 
+
+    //PlayerMovement:
     public void keyPressed(){
         if(key =='a' || key =='A'){
             p1.moveLeft=true;
