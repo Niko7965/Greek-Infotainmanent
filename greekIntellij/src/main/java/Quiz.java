@@ -9,7 +9,7 @@ public class Quiz {
     PApplet core;
 
     public Quiz(int quizNumber, PApplet core, Main main){
-        this.core= core;
+        this.core=core;
 
         quizMenu();
 
@@ -17,6 +17,8 @@ public class Quiz {
 
 
     public void quizMenu(){
+        core.rectMode(CORNERS);
+
 
 
 
