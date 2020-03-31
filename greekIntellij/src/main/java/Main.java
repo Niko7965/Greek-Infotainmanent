@@ -16,8 +16,7 @@ public class Main extends PApplet {
     Room currentRoom;
     ArrayList<Room> allRooms;
     PImage img;
-
-
+    Boolean quizMode = false;
 
     public static void main(String[] args){
         PApplet.main("Main");
@@ -26,8 +25,6 @@ public class Main extends PApplet {
 
     public void settings(){
         size(625,450);
-
-
 
     }
 
@@ -42,7 +39,9 @@ public class Main extends PApplet {
     public void  draw(){
        r1.drawRoom();
        p1.drawPlayer();
-       q1.drawQuiz();
+       if(quizMode==true) {
+           q1.drawQuiz();
+       }
     }
 
 
@@ -75,6 +74,10 @@ public class Main extends PApplet {
         if(key =='s'||key =='S'){
             p1.moveDown=false;
         }
+        if(key =='q'||key =='Q'){
+
+            triggerQuiz();
+        }
     }
 
     public int getKeyCode(){
@@ -97,6 +100,15 @@ public class Main extends PApplet {
             allRooms.add(new Room("r"+i,listOfBackgrounds[i].getName(),listOfTilemaps[i].getName(),this));
         }
 
+    }
+
+    public void triggerQuiz (){
+        if(quizMode==false){
+            q1.activateQuiz(1);
+            quizMode = true;
+        }else{
+            quizMode = false;
+        }
     }
 
 }
