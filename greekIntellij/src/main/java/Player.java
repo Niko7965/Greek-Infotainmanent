@@ -56,7 +56,7 @@ public class Player {
         movement();
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
-        System.out.println(x+" "+y);
+        //System.out.println(x+" "+y);
     }
 
 }
