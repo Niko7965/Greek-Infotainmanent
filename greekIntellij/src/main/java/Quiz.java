@@ -51,7 +51,7 @@ public class Quiz {
     }
 
     public String quizGetter(int question, int part){
-        int rightanswer = Integer.parseInt(questionSplitter(questionString(question),0));
+        int rightanswer = Integer.parseInt(questionSplitter(questionString(question),0))+1;
         String str = questionSplitter(questionString(question),part);
         return str;
     }
