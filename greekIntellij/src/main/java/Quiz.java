@@ -1,4 +1,3 @@
-//import com.sun.org.apache.xpath.internal.objects.XString;
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.data.Table;
@@ -78,7 +77,7 @@ public class Quiz {
 
     }
 
-    public String QuestionString(int n){
+    public String questionString(int n){
         ArrayList<String> questionlist = new ArrayList<String>();
         Scanner scan = null;
         try {
@@ -95,9 +94,8 @@ public class Quiz {
         return questionlist.get(n);
     }
 
-    String QuestionSplitter(String sentence, int n){
-        String[] answers = sentence.split("-");
-        //System.out.println(answers[1]);
+    String questionSplitter(String sentence, int n){
+        String[] answers = sentence.split(";");
         return answers[n];
     }
 

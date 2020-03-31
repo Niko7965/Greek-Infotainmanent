@@ -1,2 +1,22 @@
-*Hvem skrev digte på øen Lesbos?-¤Sapfo-!Virgil-!Horats-!Orpheus
-*Hvem var Artemisia 1. af Karien allieret med under den persiske invasion af Grækenland?-¤Xerxes 1.-!Darius 1.-!Aristeides-!Augustus Cæsar
+1;Hvem skrev digte på øen Lesbos?;Sapfo;Virgil;Horats;Orpheus
+PYTHAGORAS
+1;Hvad er Pythagoras læresætning?;a^2+b^2=c^2;a^2=b^2+c^2;a^2+b^2+c^2=0;a^2*b^2=c^2*d^2
+2;Hvad beskriver pythagoras læresætning?;Forholdet mellem siderne i en ligebenet trekant;Forholdet mellem siderne i en retvinklet trekant;Forholdet mellem siderne i en kvadrat;Forholdet mellem siderne i en sekskant
+3;Hvilke af disse udsagn passer om Pythagoras?;Han mødte op til sine elevers huse midt om natten for at teste om de kunne huske forskellige dele af hans undervisning.;Mellem 570 f.Kr. og 532 f.Kr holdt han offentlige taler på gaden for at dele sin viden med så mange mennesker som muligt.;Han skrev intet ned og forbød sine elever at tale om hvad de havde lært for at hans undervisning ikke skulle blive til udenadslære.;Han blev henrettet i 495 f.Kr. fordi hans læresætning blev set som djævelens værk.
+
+PERIKLES
+2;Hvad lavede Perikles?;Han var løjtnant på den Athenske flåde;Han var politiker og general;Han var konge af Sparta;Han var en gud over trolddom
+1;Hvad var Perikles især kendt for at indføre i Athen?;Demokratiet;Autokratiet;De græske guder;Kristendommen
+3;Perikles var drivkraften i at omdanne hvad?;Sparta til Athen;Akropolis til en storby;Det Deliske Søforbund til et Athensk imperium;Persien til Grækenland
+4;Hvad fik Perikles genopbygget efter Athen vandt krigen mod perserne?;En guldstatue af Artemis;En statue af klippen Akropolis;Et tempel som symbol for det gode fællesskab mellem Athen og Sparta;Flere templer og statuer på Akropolis
+
+ALEXANDRIA
+3;Hvor mange bøger regnes Alexandria at have haft?;Over 5.000 bøger;Over 20.000 bøger;Over 500.000 bøger;Over 1.000.000 bøger
+1;Hvornår regner man med at det Alexandrinske bibliotek brændte?;I år 47 f.Kr.;I år 1 f.Kr.;I år 131 f.kr;Trickspørgsmål, det brændte ikke;
+1;Hvilket sted menes at have været oldtidens vigtigste lærdomscenter?;Det Alexandrinske Bibliotek;Parthenon;Det Deliske Søforbund;Athen;
+
+AKROPOLIS
+1;Hvad er en akropolis?;En by eller fæstning placeret på en høj;Et tempel man tilbeder Kekrops i;En sø med rent vand der er dybere end 460 meter;Et tempel med mindst 8 søjler ved indgangen
+4;Hvilken attraktion kunne man ikke finde på Akropolis?;Niketemplet;Athena Promachos;Partheon;Templet for den Olympiske Zeus
+4;Hvilke af disse udsagn passer om Akropolis?;Det Alexandrinske bibliotek var stod på Akropolis før det blev ødelagt i 47 f.Kr.;Man brugte Akropolis til at aflejre fæces fra toiletterne i Athen i tidsrummet 460-430 f.Kr;Akropolis var den mest frugtbare by hvor man f.eks. kunne finde den sjældne blomst “silene tomentosa”;Perserriget angreb og ødelagde mange bygninger på Akropolis i 480 f.Kr.
+2;Hvornår blev bygningerne på Akropolis genopbygget?;I 480 f.Kr. af perserkongen Kyros den Store;Omkring tidsrummet 460-430 f.Kr af statsmanden Akropolis;Fra 1972-1994 af den Græske NHRF;Omkring år 495 f.Kr. af Pythagoras.
