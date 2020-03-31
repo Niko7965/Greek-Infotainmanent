@@ -47,10 +47,10 @@ public class Quiz {
         core.fill(255,255,255,255);
         core.textSize(core.width/25);
         core.textAlign(core.CENTER,core.CENTER);
-        core.text(QuestionSplitter(QuestionString(0),0),core.width/2,core.height/3);
+        core.text(questionSplitter(questionString(0),0),core.width/2,core.height/3);
 
         //Option1
-        quizOption(1,QuestionSplitter(QuestionString(0),1));
+        quizOption(1,questionSplitter(questionString(0),1));
 
     }
 
