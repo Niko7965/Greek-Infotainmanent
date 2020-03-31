@@ -29,11 +29,10 @@ public class Player {
     }
 
     public void movement(){
-        if(y>0 &&moveUp&&!main.r1.SpaceUpSolid((int) x, (int) y)){
-
+        if(moveUp&&!main.r1.SpaceUpSolid((int) x, (int) y)){
             y--;
         }
-        if(y<28 && moveDown&&!main.r1.SpaceDownSolid((int) x, (int) y)){
+        if(moveDown&&!main.r1.SpaceDownSolid((int) x, (int) y)){
             y++;
         }
         if(moveLeft && !main.r1.SpaceLeftSolid((int) x, (int) y)){
@@ -42,6 +41,7 @@ public class Player {
         if(moveRight && !main.r1.SpaceRightSolid((int) x, (int) y)){
             x++;
         }
+
     }
 
     public void setSprite(String ImageURL){
