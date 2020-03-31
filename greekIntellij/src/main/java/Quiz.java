@@ -1,4 +1,3 @@
-//import com.sun.org.apache.xpath.internal.objects.XString;
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.data.Table;
@@ -42,16 +41,22 @@ public class Quiz {
         core.textSize(core.width/30);
         core.textAlign(core.LEFT,core.TOP);
         core.fill(255,255,255,255);
-        core.text(QuestionSplitter(QuestionString(0),1),qboxwidth/20,qboxy-(qboxheight/3)+5);
-
+        core.text(quizGetter(0,1),qboxwidth/20,qboxy-(qboxheight/3)+5);
         //quizOption(1,answer);
 
     }
 
-    public void quizOption(int placement, String text) {
+    public void quizOption() {
+
     }
 
-    public String QuestionString(int n){
+    public String quizGetter(int question, int part){
+        int rightanswer = Integer.parseInt(questionSplitter(questionString(question),0));
+        String str = questionSplitter(questionString(question),part);
+        return str;
+    }
+
+    public String questionString(int n){
         ArrayList<String> questionlist = new ArrayList<String>();
         Scanner scan = null;
         try {
@@ -68,9 +73,8 @@ public class Quiz {
         return questionlist.get(n);
     }
 
-    String QuestionSplitter(String sentence, int n){
-        String[] answers = sentence.split("-");
-        //System.out.println(answers[1]);
+    String questionSplitter(String sentence, int n){
+        String[] answers = sentence.split(";");
         return answers[n];
     }
 
