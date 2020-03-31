@@ -4,9 +4,11 @@ import processing.data.Table;
 import processing.event.KeyEvent;
 
 import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-
+import java.util.List;
+import org.apache.commons.io.FileUtils;
 
 
 public class Main extends PApplet {
@@ -14,7 +16,7 @@ public class Main extends PApplet {
     Player p1;
     Quiz q1;
     Room currentRoom;
-    ArrayList<Room> allRooms;
+    ArrayList<Room> allRooms = new ArrayList<Room>();
     PImage img;
     Boolean quizMode = false;
 
@@ -30,14 +32,23 @@ public class Main extends PApplet {
 
     public void setup(){
         //frameRate(20);
-        r1 = new Room("1","g5.png","g5.png",this);
+        D
+        try {
+            loadRooms();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+       // r1 = new Room("1","Images\\Backgrounds\\r5.png","Images\\Tilemaps\\r5.png",this);
         p1 = new Player(10,10,"Player1.png",this,this);
         q1 = new Quiz(this,this);
+        currentRoom=allRooms.get(0);
 
     }
 
     public void  draw(){
-       r1.drawRoom();
+       currentRoom.drawRoom();
        p1.drawPlayer();
        if(quizMode==true) {
            q1.drawQuiz();
@@ -87,18 +98,41 @@ public class Main extends PApplet {
         else return 0;
     }
 
-    public void loadRooms(){
-        File backgroundFolder = new File("Images/Backgrounds");
-        File[] listOfBackgrounds = backgroundFolder.listFiles();
+    public void loadRooms() throws IOException {
 
-        File tileMapFolder = new File("Images/Backgrounds");
-        File[] listOfTilemaps = backgroundFolder.listFiles();
+        ArrayList<String> listOfBackgrounds = getImageFiles("Images/Backgrounds");
+        ArrayList<String> listOfTilemaps = getImageFiles("Images/Tilemaps");
 
         assert listOfTilemaps != null;
         assert listOfBackgrounds != null;
-        for(int i = 0; i<listOfBackgrounds.length; i++){
-            allRooms.add(new Room("r"+i,listOfBackgrounds[i].getName(),listOfTilemaps[i].getName(),this));
+
+        for (int i =0; i<listOfBackgrounds.size(); i++) {
+            System.out.println(listOfBackgrounds.get(i));
+            System.out.println(listOfTilemaps.get(i));
         }
+
+
+        for(int i = 0; i<listOfBackgrounds.size(); i++){
+            System.out.println(listOfBackgrounds.get(i));
+            System.out.println(listOfTilemaps.get(i));
+            allRooms.add(new Room("r"+i, listOfBackgrounds.get(i),listOfTilemaps.get(i),this));
+        }
+        for (Room allRoom : allRooms) {
+            System.out.println(allRoom);
+        }
+
+
+    }
+
+    public ArrayList<String> getImageFiles(String url) throws IOException {
+        File folder = new File(url);
+        String[] extensions = new String[]{"png"};
+        List<File> files = (List<File>) FileUtils.listFiles(folder,extensions,true);
+        ArrayList<String> imagePaths = new ArrayList<String>();
+        for(File file : files){
+            imagePaths.add(file.getPath());
+        }
+        return imagePaths;
 
     }
 

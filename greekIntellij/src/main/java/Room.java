@@ -32,9 +32,9 @@ public class Room {
     }
 
     public void setBackground(String ImageURL){
-        this.background = core.loadImage("Images/Backgrounds/"+ImageURL);
+        this.background = core.loadImage(ImageURL);
     }
-    public void setTileMap(String tileMapURL){this.tileMap =core.loadImage("Images/TileMaps/"+tileMapURL);}
+    public void setTileMap(String tileMapURL){this.tileMap =core.loadImage(tileMapURL);}
 
     public void drawRoom(){
         core.imageMode(CORNERS);
@@ -83,7 +83,7 @@ public class Room {
     }
 
     public int yFromId(float id){
-        return core.floor(id/widthInTiles);
+        return PApplet.floor(id/widthInTiles);
     }
 
     public int coordToId(int x, int y){
