@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.data.Table;
 import processing.event.KeyEvent;
 
 import java.io.File;
@@ -19,13 +20,14 @@ public class Main extends PApplet {
     PImage img;
 
 
+
     public static void main(String[] args){
         PApplet.main("Main");
 
     }
 
     public void settings(){
-        size(625*3,450*3);
+        size(625,450);
 
 
 
@@ -43,7 +45,7 @@ public class Main extends PApplet {
 
        // r1 = new Room("1","Images\\Backgrounds\\r5.png","Images\\Tilemaps\\r5.png",this);
         p1 = new Player(10,10,"Player1.png",this,this);
-        q1 = new Quiz(1,this,this);
+        q1 = new Quiz(this,this);
         currentRoom=allRooms.get(0);
 
     }

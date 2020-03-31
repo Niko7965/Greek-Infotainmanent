@@ -1,13 +1,18 @@
+
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.KeyEvent;
 
 import static processing.core.PConstants.CORNERS;
 import static processing.core.PConstants.UP;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Player {
-    //Proceesing core
+
     PApplet core;
 
     float x;
