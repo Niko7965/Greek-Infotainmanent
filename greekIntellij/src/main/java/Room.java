@@ -5,6 +5,8 @@ import processing.core.PApplet;
 
 import static processing.core.PConstants.CORNERS;
 
+
+//Class for the rooms
 public class Room {
     //Processing core for using processing methods
     PApplet core;
@@ -19,10 +21,11 @@ public class Room {
     PImage background;
     PImage tileMap;
 
+    //Dimentions of room given in tiles
     int widthInTiles = 27;
     int heightInTiles = 20;
 
-
+    //Constructor for room
     public Room(String id, String ImageURL,String tileMapURL, PApplet core){
         this.id = id;
         this.core = core;
@@ -31,11 +34,13 @@ public class Room {
         fillSpaces();
     }
 
+    //Sets the background image as well as tilemap
     public void setBackground(String ImageURL){
         this.background = core.loadImage(ImageURL);
     }
     public void setTileMap(String tileMapURL){this.tileMap =core.loadImage(tileMapURL);}
 
+    //Draws the room
     public void drawRoom(){
         core.imageMode(CORNERS);
         core.image(background,0,0,core.width,core.height);
@@ -43,6 +48,9 @@ public class Room {
     }
 
 
+    //A function that fills the arraylist "Spaces" with spaces based on the color of pixels in a tilemap.
+    //Red pixels are solid
+    //Later on blue pixels will be interactable etc.
 
     public void fillSpaces(){
         int black = -16777216;
@@ -65,7 +73,7 @@ public class Room {
 
             }
         }
-        evalSpaces();
+        //evalSpaces();
     }
 
     public void evalSpaces(){

@@ -12,25 +12,35 @@ import org.apache.commons.io.FileUtils;
 
 
 public class Main extends PApplet {
-    Room r1;
+
+    //Quiz and player object
     Player p1;
     Quiz q1;
+
+    //The room that is currently active
     Room currentRoom;
+
+    //A list of all rooms
     ArrayList<Room> allRooms = new ArrayList<Room>();
-    PImage img;
+
+    //A boolean that controls whether a quiz is active
     Boolean quizMode = false;
 
+    //The main class, which instantiates the processing main.
     public static void main(String[] args){
         PApplet.main("Main");
 
     }
 
+    //Processing settings. Currently sets the size of the screen
     public void settings(){
         int scale = 2;
         size(625*scale,450*scale);
 
     }
 
+    //Setup is a processing function run on startup.
+    //Loads the rooms, and creates a player and quiz object.
     public void setup(){
         frameRate(20);
         try {
@@ -39,14 +49,18 @@ public class Main extends PApplet {
             e.printStackTrace();
         }
 
-
-       // r1 = new Room("1","Images\\Backgrounds\\r5.png","Images\\Tilemaps\\r5.png",this);
-        p1 = new Player(10,10,"Player1.png",this,this);
+        //Room one for test purposes
+       // Room r1 = new Room("1","Images\\Backgrounds\\r5.png","Images\\Tilemaps\\r5.png",this);
+        p1 = new Player(10,10,this,this);
         q1 = new Quiz(this,this);
+
+        //Sets the first room in the list as the current room
         currentRoom=allRooms.get(0);
 
     }
 
+    //Draw is run at every frame.
+    //Draws the player as well as the room, and the quiz, if the quiz is active.
     public void  draw(){
        currentRoom.drawRoom();
        p1.drawPlayer();
@@ -57,6 +71,7 @@ public class Main extends PApplet {
 
 
     //PlayerMovement:
+    //Player movement is handled in main, because processing's keylisteners are only accessible here.
     public void keyPressed(){
         if(key =='a' || key =='A'){
             p1.moveLeft=true;
@@ -98,32 +113,29 @@ public class Main extends PApplet {
         else return 0;
     }
 
+    //Loads all the rooms, and puts them into the arraylist of rooms
     public void loadRooms() throws IOException {
 
+        //Creates lists of background images and tilemaps.
         ArrayList<String> listOfBackgrounds = getImageFiles("Images/Backgrounds");
         ArrayList<String> listOfTilemaps = getImageFiles("Images/Tilemaps");
 
+        //Makes sure that neither list is empty, before cycling through them
         assert listOfTilemaps != null;
         assert listOfBackgrounds != null;
 
-        for (int i =0; i<listOfBackgrounds.size(); i++) {
-            System.out.println(listOfBackgrounds.get(i));
-            System.out.println(listOfTilemaps.get(i));
-        }
-
-
+        //Cycles through the lists, and creates new room objects for each pair of tilemaps and backgrounds
         for(int i = 0; i<listOfBackgrounds.size(); i++){
-            System.out.println(listOfBackgrounds.get(i));
-            System.out.println(listOfTilemaps.get(i));
+            //System.out.println(listOfBackgrounds.get(i));
+            //System.out.println(listOfTilemaps.get(i));
             allRooms.add(new Room("r"+i, listOfBackgrounds.get(i),listOfTilemaps.get(i),this));
         }
-        for (Room allRoom : allRooms) {
-            System.out.println(allRoom);
-        }
+
 
 
     }
 
+    //Returns an arraylist of strings, that are the relative url paths of png files the folder for a given string url
     public ArrayList<String> getImageFiles(String url) throws IOException {
         File folder = new File(url);
         String[] extensions = new String[]{"png"};
@@ -136,6 +148,7 @@ public class Main extends PApplet {
 
     }
 
+    //Toggles the quizmode
     public void triggerQuiz (){
         if(!quizMode){
             q1.activateQuiz(1);

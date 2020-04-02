@@ -1,10 +1,12 @@
 import processing.core.PApplet;
 
+
+//A simple class for each space in a room
 public class Space {
     PApplet core;
     int id;
 
-    //Obstacle obs;
+    //Room variables
     boolean solid;
     boolean interactable;
 
