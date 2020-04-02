@@ -26,13 +26,13 @@ public class Main extends PApplet {
     }
 
     public void settings(){
-        size(625,450);
+        int scale = 2;
+        size(625*scale,450*scale);
 
     }
 
     public void setup(){
-        //frameRate(20);
-        D
+        frameRate(20);
         try {
             loadRooms();
         } catch (IOException e) {
@@ -50,7 +50,7 @@ public class Main extends PApplet {
     public void  draw(){
        currentRoom.drawRoom();
        p1.drawPlayer();
-       if(quizMode==true) {
+       if(quizMode) {
            q1.drawQuiz();
        }
     }
@@ -137,7 +137,7 @@ public class Main extends PApplet {
     }
 
     public void triggerQuiz (){
-        if(quizMode==false){
+        if(!quizMode){
             q1.activateQuiz(1);
             quizMode = true;
         }else{

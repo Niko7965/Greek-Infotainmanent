@@ -34,16 +34,16 @@ public class Player {
     }
 
     public void movement(){
-        if(moveUp&&!main.r1.SpaceUpSolid((int) x, (int) y)){
+        if(moveUp&&!main.currentRoom.SpaceUpSolid((int) x, (int) y)){
             y--;
         }
-        if(moveDown&&!main.r1.SpaceDownSolid((int) x, (int) y)){
+        if(moveDown&&!main.currentRoom.SpaceDownSolid((int) x, (int) y)){
             y++;
         }
-        if(moveLeft && !main.r1.SpaceLeftSolid((int) x, (int) y)){
+        if(moveLeft && !main.currentRoom.SpaceLeftSolid((int) x, (int) y)){
             x--;
         }
-        if(moveRight && !main.r1.SpaceRightSolid((int) x, (int) y)){
+        if(moveRight && !main.currentRoom.SpaceRightSolid((int) x, (int) y)){
             x++;
         }
 
