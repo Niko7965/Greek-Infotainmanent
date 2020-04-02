@@ -18,9 +18,6 @@ public class Quiz {
     String question;
     String answer;
     Table questions;
-    float qboxy;
-    float qboxheight;
-    float qboxwidth;
     float space;
     float maxX;
     float maxY;
@@ -58,18 +55,27 @@ public class Quiz {
 
         //Option1
         quizOption(1,questionSplitter(questionString(0),1));
+        quizOption(2,questionSplitter(questionString(0),1));
 
     }
 
     public void quizOption(int placement, String text) {
+        if(placement==1) {
+            maxX = space * 4;
+            minX = core.width / 2 - space*2;
+            maxY = core.height - core.height / 4+space*2;
+            minY = core.height - core.height / 8 - space;
+        }
+        if(placement==2){
+            maxX = space * 4;
+            minX = core.width / 2 - space*2;
+            maxY = core.height - core.height / 8 + space;
+            minY = core.height- space*3;
+        }
+        if(placement==3){
+            minX = core.width space * 4;
 
-        qboxy = core.height-3;
-        qboxheight =core.height-core.height/4;
-        qboxwidth = core.width-space;
-        maxX=space*4;
-        maxY=core.height-core.height/4+space*2;
-        minX=core.width/2-space;
-        minY=core.height-core.height/8-space;
+        }
 
         if((core.mouseX<minX)&&(core.mouseX>maxX)&&(core.mouseY<minY)&&(core.mouseY>maxY)) {
             core.fill(120, 120, 255, 240);
@@ -82,7 +88,7 @@ public class Quiz {
         core.stroke(240,240,255,200);
         core.rect(maxX,maxY,minX,minY);
 
-        core.textSize(core.width/45);
+        core.textSize(core.width/42);
         core.textAlign(core.LEFT,core.TOP);
         core.fill(255,255,255,255);
         core.text(text,maxX+space,maxY+space,minX-space,minY-space);
