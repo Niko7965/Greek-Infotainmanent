@@ -18,6 +18,14 @@ public class Quiz {
     String question;
     String answer;
     Table questions;
+    float qboxy;
+    float qboxheight;
+    float qboxwidth;
+    float space;
+    float maxX;
+    float maxY;
+    float minX;
+    float minY;
 
     public Quiz(PApplet core, Main main){
         this.quizNumber=quizNumber;
@@ -39,10 +47,8 @@ public class Quiz {
         core.fill(0,0,255,120);
         core.strokeWeight(4);
         core.stroke(240,240,255,200);
-        float qboxy = core.height-3;
-        float qboxheight =core.height-core.height/4;
-        float qboxwidth = core.width-2;
-        core.rect(1,qboxy,qboxwidth,qboxheight,7);
+        space=3;
+        core.rect(space,core.height-core.height/4,core.width-space*2,core.height-space,7);
 
         //Question
         core.fill(255,255,255,255);
@@ -56,25 +62,30 @@ public class Quiz {
     }
 
     public void quizOption(int placement, String text) {
-        float qboxy = core.height-3;
-        float qboxheight =core.height-core.height/4;
-        float qboxwidth = core.width-2;
 
+        qboxy = core.height-3;
+        qboxheight =core.height-core.height/4;
+        qboxwidth = core.width-space;
+        maxX=space*4;
+        maxY=core.height-core.height/4+space*2;
+        minX=core.width/2-space;
+        minY=core.height-core.height/8-space;
 
+        if((core.mouseX<minX)&&(core.mouseX>maxX)&&(core.mouseY<minY)&&(core.mouseY>maxY)) {
+            core.fill(120, 120, 255, 240);
+        }else{
             core.fill(0, 0, 255, 120);
-
+        }
 
         core.rectMode(CORNERS);
         core.strokeWeight(2);
         core.stroke(240,240,255,200);
-        core.rect(4,4,40,20);
+        core.rect(maxX,maxY,minX,minY);
 
-
-
-        core.textSize(core.width/30);
+        core.textSize(core.width/45);
         core.textAlign(core.LEFT,core.TOP);
         core.fill(255,255,255,255);
-        core.text(text,qboxwidth/20,qboxy-(qboxheight/3)+5);
+        core.text(text,maxX+space,maxY+space,minX-space,minY-space);
 
     }
 

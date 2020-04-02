@@ -26,7 +26,7 @@ public class Main extends PApplet {
     }
 
     public void settings(){
-        int scale = 2;
+        int scale = 1;
         size(625*scale,450*scale);
 
     }
