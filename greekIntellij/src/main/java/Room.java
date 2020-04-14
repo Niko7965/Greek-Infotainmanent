@@ -12,7 +12,7 @@ public class Room {
     PApplet core;
 
     //Id of room
-    String id;
+    int id;
 
     //List of spaces in the room
     ArrayList<Space> spaces = new ArrayList<Space>();
@@ -26,7 +26,7 @@ public class Room {
     int heightInTiles = 20;
 
     //Constructor for room
-    public Room(String id, String ImageURL,String tileMapURL, PApplet core){
+    public Room(int id, String ImageURL,String tileMapURL, PApplet core){
         this.id = id;
         this.core = core;
         setTileMap(tileMapURL);

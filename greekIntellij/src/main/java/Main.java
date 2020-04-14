@@ -128,7 +128,7 @@ public class Main extends PApplet {
         for(int i = 0; i<listOfBackgrounds.size(); i++){
             //System.out.println(listOfBackgrounds.get(i));
             //System.out.println(listOfTilemaps.get(i));
-            allRooms.add(new Room("r"+i, listOfBackgrounds.get(i),listOfTilemaps.get(i),this));
+            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),this));
         }
 
 
