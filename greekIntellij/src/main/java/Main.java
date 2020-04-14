@@ -156,7 +156,7 @@ public class Main extends PApplet {
         }
     }
 
-    public void mousePressed() {
+    public void mouseClicked() {
         if (q1.optionHover == true) {
             if (q1.correct == true) {
                 quizMode = false;
