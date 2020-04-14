@@ -151,7 +151,7 @@ public class Main extends PApplet {
     //Toggles the quizmode
     public void triggerQuiz (){
         if(!quizMode){
-            q1.activateQuiz(1);
+            q1.activateQuiz(round(random(0,14)),random(0,4));
             quizMode = true;
         }
     }

@@ -25,15 +25,15 @@ public class Quiz {
     float minY;
     boolean correct;
     boolean optionHover;
+    float correctPlacement;
 
     public Quiz(PApplet core, Main main){
-        this.quizNumber=quizNumber;
         this.core= core;
 
     }
 
-
-    public void activateQuiz(int quizNumber){
+    public void activateQuiz(int quizNumber,float correctPlacement){
+        this.correctPlacement=correctPlacement;
         this.quizNumber = quizNumber;
 
     }
@@ -53,19 +53,40 @@ public class Quiz {
         core.fill(255,255,255,255);
         core.textSize(core.width/25);
         core.textAlign(core.CENTER,core.CENTER);
-        core.text(questionSplitter(questionString(0),1),core.width/2,core.height/3);
+        core.text(questionSplitter(questionString(quizNumber),1),core.width/4,core.height/6,core.width-core.width/4,core.height-core.height/4);
 
         //Option1
         optionHover=false;
-        //shuffleOptions(core.random(0,4));
-        quizOption(1,questionSplitter(questionString(0),2),true);
-        quizOption(2,questionSplitter(questionString(0),3),false);
-        quizOption(3,questionSplitter(questionString(0),4),false);
-        quizOption(4,questionSplitter(questionString(0),5),false);
+
+        shuffleOptions();
     }
 
-    public void shuffleOptions(float correctPlacement){
-
+    public void shuffleOptions(){
+        if(correctPlacement>3){
+            quizOption(1,questionSplitter(questionString(quizNumber),2),true);
+            quizOption(2,questionSplitter(questionString(quizNumber),3),false);
+            quizOption(3,questionSplitter(questionString(quizNumber),4),false);
+            quizOption(4,questionSplitter(questionString(quizNumber),5),false);
+        }else{
+            if(correctPlacement>2){
+                quizOption(2,questionSplitter(questionString(quizNumber),2),true);
+                quizOption(1,questionSplitter(questionString(quizNumber),3),false);
+                quizOption(4,questionSplitter(questionString(quizNumber),4),false);
+                quizOption(3,questionSplitter(questionString(quizNumber),5),false);
+            }else{
+                if(correctPlacement>1){
+                    quizOption(3,questionSplitter(questionString(quizNumber),2),true);
+                    quizOption(4,questionSplitter(questionString(quizNumber),3),false);
+                    quizOption(2,questionSplitter(questionString(quizNumber),4),false);
+                    quizOption(1,questionSplitter(questionString(quizNumber),5),false);
+                }else{
+                    quizOption(4,questionSplitter(questionString(quizNumber),2),true);
+                    quizOption(3,questionSplitter(questionString(quizNumber),3),false);
+                    quizOption(1,questionSplitter(questionString(quizNumber),4),false);
+                    quizOption(2,questionSplitter(questionString(quizNumber),5),false);
+                }
+            }
+        }
     }
 
     public void quizOption(int placement, String text,boolean correct) {
@@ -109,9 +130,6 @@ public class Quiz {
         core.text(text,maxX+space,maxY+space,minX-space,minY-space);
 
     }
-
-
-
 
     public String questionString(int n){
         ArrayList<String> questionlist = new ArrayList<String>();
