@@ -8,14 +8,14 @@ public class Space {
 
     //Room variables
     boolean solid;
-    boolean interactable;
+    int interaction;
 
 
-    public Space(int id, boolean solid, boolean interactable){
+    public Space(int id, boolean solid, int interaction){
         this.id = id;
 
         this.solid=solid;
-        this.interactable=interactable;
+        this.interaction = interaction;
 
     }
 
@@ -23,6 +23,8 @@ public class Space {
     public boolean getSolid(){
         return solid;
     }
+    public int getInteraction(){return interaction;}
+
 
 
 

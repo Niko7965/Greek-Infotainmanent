@@ -85,6 +85,10 @@ public class Main extends PApplet {
         if(key =='s'||key =='S'){
             p1.moveDown=true;
         }
+        if(key == ' '){
+            System.out.println("SPACE");
+            p1.interact();
+        }
     }
 
     public void keyReleased(){
@@ -120,6 +124,7 @@ public class Main extends PApplet {
         ArrayList<String> listOfBackgrounds = getImageFiles("Images/Backgrounds");
         ArrayList<String> listOfTilemaps = getImageFiles("Images/Tilemaps");
 
+
         //Makes sure that neither list is empty, before cycling through them
         assert listOfTilemaps != null;
         assert listOfBackgrounds != null;
@@ -128,7 +133,7 @@ public class Main extends PApplet {
         for(int i = 0; i<listOfBackgrounds.size(); i++){
             //System.out.println(listOfBackgrounds.get(i));
             //System.out.println(listOfTilemaps.get(i));
-            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),this));
+            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),"Files/Interactions/r0"+".txt",this));
         }
 
 
@@ -147,6 +152,8 @@ public class Main extends PApplet {
         return imagePaths;
 
     }
+
+
 
     //Toggles the quizmode
     public void triggerQuiz (){
