@@ -85,6 +85,7 @@ public class Main extends PApplet {
         if(key =='s'||key =='S'){
             p1.moveDown=true;
         }
+
         if(key == ' '){
             System.out.println("SPACE");
             p1.interact();
@@ -141,7 +142,7 @@ public class Main extends PApplet {
     }
 
     //Returns an arraylist of strings, that are the relative url paths of png files the folder for a given string url
-    public ArrayList<String> getImageFiles(String url) throws IOException {
+    public ArrayList<String> getImageFiles(String url) {
         File folder = new File(url);
         String[] extensions = new String[]{"png"};
         List<File> files = (List<File>) FileUtils.listFiles(folder,extensions,true);
@@ -164,12 +165,12 @@ public class Main extends PApplet {
     }
 
     public void mouseClicked() {
-        if (q1.optionHover == true) {
-            if (q1.correct == true) {
+        if (q1.optionHover) {
+            if (q1.correct) {
                 quizMode = false;
                 println("det er rigtigt!");
             }
-            if (q1.correct == false) {
+            if (!q1.correct) {
                 quizMode = false;
                 println("FORKERT!");
             }

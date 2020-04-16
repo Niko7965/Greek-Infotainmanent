@@ -30,6 +30,8 @@ public class Player {
     boolean moveRight=false;
     boolean moveLeft=false;
 
+    String direction = "d";
+
     //Default sprite, as well for directional sprites
     PImage sprite;
     PImage spriteUp;
@@ -58,12 +60,12 @@ public class Player {
 
     //Tries interaction
     public void interact(){
-
+        //main.currentRoom.SpaceInteraction(int() x, int() y,direction);
 
     }
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
-
+        //System.out.println(x +","+y);
 
         if(x > main.currentRoom.widthInTiles-2){
             main.currentRoom = main.allRooms.get(main.currentRoom.id+1);
@@ -91,18 +93,22 @@ public class Player {
         if(moveUp&&!main.currentRoom.SpaceUpSolid((int) x, (int) y)){
             sprite=spriteUp;
             y--;
+            direction ="u";
         }
         if(moveDown&&!main.currentRoom.SpaceDownSolid((int) x, (int) y)){
             sprite=spriteDown;
             y++;
+            direction = "d";
         }
         if(moveLeft && !main.currentRoom.SpaceLeftSolid((int) x, (int) y)){
             sprite =spriteLeft;
             x--;
+            direction = "l";
         }
         if(moveRight && !main.currentRoom.SpaceRightSolid((int) x, (int) y)){
             sprite =spriteRight;
             x++;
+            direction = "r";
         }
 
 

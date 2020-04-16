@@ -72,13 +72,11 @@ public class Room {
         for (int i=0; i<widthInTiles*heightInTiles; i++){
             int c =tileMap.get(xFromId(i),yFromId(i));
 
-
-            System.out.println(c);
-
             if(c == black) {
                 spaces.add(new Space(spaces.size(), true, 0));
             }
-            if(c == yellow){
+
+            else if(c == yellow){
                 spaces.add(new Space(spaces.size(),true,1));
             }
 
@@ -90,7 +88,7 @@ public class Room {
         //evalSpaces();
     }
 
-    public String getIneraction(int n){
+    public String getInteraction(int n){
         ArrayList<String> interactionList = new ArrayList<String>();
         Scanner scan = null;
         try {
@@ -120,9 +118,6 @@ public class Room {
             System.out.println(spaces.get(i).getSolid());
         }
     }
-
-
-
 
 
     public int xFromId(int id){
