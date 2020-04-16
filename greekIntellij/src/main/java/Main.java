@@ -171,7 +171,7 @@ public class Main extends PApplet {
 
             }
             if (!q1.correct) {
-                
+
                 q1.success=false;
                 q1.results=true;
                 p1.health--;

@@ -3,13 +3,13 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.KeyEvent;
 
-import static processing.core.PConstants.CORNERS;
-import static processing.core.PConstants.UP;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static processing.core.PConstants.*;
 
 
 //Class made for the player
@@ -42,6 +42,10 @@ public class Player {
     PImage spriteLeft;
     PImage spriteRight;
 
+    //Heart sprites
+    PImage heartLife;
+    PImage heartDeath;
+
     //Contstructor for Player class
     public Player(float x,float y, PApplet core, Main main){
         this.x =  x;
@@ -55,6 +59,10 @@ public class Player {
         spriteLeft= core.loadImage("Images/Sprites/PlayerLeft.png");
         spriteRight= core.loadImage("Images/Sprites/PlayerRight.png");
         sprite =spriteDown;
+
+        //Loads hearts
+        heartLife = core.loadImage("Images/Sprites/heart1.png");
+        heartDeath = core.loadImage("Images/Sprites/heart2.png");
     }
 
 
@@ -124,10 +132,14 @@ public class Player {
         if(main.quizMode==false) {
             movement();
         }
-
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
+        core.imageMode(CORNER);
+        core.tint(255, 190);
+        core.image(heartLife,core.width/50,core.width/50,core.width/16,core.width/16);
+        core.image(heartDeath,core.width/12,core.width/50,core.width/16,core.width/16);
+        core.tint(255);
     }
 
 }

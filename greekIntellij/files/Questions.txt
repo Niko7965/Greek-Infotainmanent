@@ -2,7 +2,7 @@
 1;Hvad er Pythagoras læresætning?;a^2+b^2=c^2;a^2=b^2+c^2;a^2+b^2+c^2=0;a^2*b^2=c^2*d^2
 1;Hvad beskriver pythagoras læresætning?;Forholdet mellem siderne i en retvinklet trekant;Forholdet mellem siderne i en ligebenet trekant;Forholdet mellem siderne i en kvadrat;Forholdet mellem siderne i en sekskant
 1;Hvilke af disse udsagn passer om Pythagoras?;Han skrev intet ned og forbød sine elever at tale om hvad de havde lært for at hans undervisning ikke skulle blive til udenadslære.;Han mødte op til sine elevers huse midt om natten for at teste om de kunne huske forskellige dele af hans undervisning.;Mellem 570 f.Kr. og 532 f.Kr holdt han offentlige taler på gaden for at dele sin viden med så mange mennesker som muligt.;Han blev henrettet i 495 f.Kr. fordi hans læresætning blev set som djævelens værk.
-1;Hvad lavede Perikles?;Han var politiker og general;Han var løjtnant på den Athenske flåde;Han var politiker og general;Han var konge af Sparta;Han var en gud over trolddom
+1;Hvad lavede Perikles?;Han var politiker og general;Han var løjtnant på den Athenske flåde;Han var konge af Sparta;Han var en gud over trolddom
 1;Hvad var Perikles især kendt for at indføre i Athen?;Demokratiet;Autokratiet;De græske guder;Kristendommen
 1;Perikles var drivkraften i at omdanne hvad?;Det Deliske Søforbund til et Athensk imperium;Sparta til Athen;Akropolis til en storby;Persien til Grækenland
 1;Hvad fik Perikles genopbygget efter Athen vandt krigen mod perserne?;Flere templer og statuer på Akropolis;En guldstatue af Artemis;En statue af klippen Akropolis;Et tempel som symbol for det gode fællesskab mellem Athen og Sparta;Flere templer og statuer på Akropolis
