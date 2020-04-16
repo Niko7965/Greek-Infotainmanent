@@ -23,15 +23,17 @@ public class Quiz {
     float maxY;
     float minX;
     float minY;
+    boolean correct;
+    boolean optionHover;
+    float correctPlacement;
 
     public Quiz(PApplet core, Main main){
-        this.quizNumber=quizNumber;
         this.core= core;
 
     }
 
-
-    public void activateQuiz(int quizNumber){
+    public void activateQuiz(int quizNumber,float correctPlacement){
+        this.correctPlacement=correctPlacement;
         this.quizNumber = quizNumber;
 
     }
@@ -51,46 +53,70 @@ public class Quiz {
         core.fill(255,255,255,255);
         core.textSize(core.width/25);
         core.textAlign(core.CENTER,core.CENTER);
-        core.text(questionSplitter(questionString(0),0),core.width/2,core.height/3);
+        core.text(questionSplitter(questionString(quizNumber),1),core.width/4,core.height/6,core.width-core.width/4,core.height-core.height/4);
 
         //Option1
-        quizOption(1,questionSplitter(questionString(0),2));
-        quizOption(2,questionSplitter(questionString(0),3));
-        quizOption(3,questionSplitter(questionString(0),4));
-        quizOption(4,questionSplitter(questionString(0),5));
+        optionHover=false;
 
+        shuffleOptions();
     }
 
-    public void quizOption(int placement, String text) {
-        if(placement==1) {
+    public void shuffleOptions(){
+        if(correctPlacement>3){
+            quizOption(1,questionSplitter(questionString(quizNumber),2),true);
+            quizOption(2,questionSplitter(questionString(quizNumber),3),false);
+            quizOption(3,questionSplitter(questionString(quizNumber),4),false);
+            quizOption(4,questionSplitter(questionString(quizNumber),5),false);
+        }else{
+            if(correctPlacement>2){
+                quizOption(2,questionSplitter(questionString(quizNumber),2),true);
+                quizOption(1,questionSplitter(questionString(quizNumber),3),false);
+                quizOption(4,questionSplitter(questionString(quizNumber),4),false);
+                quizOption(3,questionSplitter(questionString(quizNumber),5),false);
+            }else{
+                if(correctPlacement>1){
+                    quizOption(3,questionSplitter(questionString(quizNumber),2),true);
+                    quizOption(4,questionSplitter(questionString(quizNumber),3),false);
+                    quizOption(2,questionSplitter(questionString(quizNumber),4),false);
+                    quizOption(1,questionSplitter(questionString(quizNumber),5),false);
+                }else{
+                    quizOption(4,questionSplitter(questionString(quizNumber),2),true);
+                    quizOption(3,questionSplitter(questionString(quizNumber),3),false);
+                    quizOption(1,questionSplitter(questionString(quizNumber),4),false);
+                    quizOption(2,questionSplitter(questionString(quizNumber),5),false);
+                }
+            }
+        }
+    }
+
+    public void quizOption(int placement, String text,boolean correct) {
+
+        if(placement==1||placement==2){
             maxX = space * 3;
             minX = core.width / 2 - space;
+        }
+
+        if(placement==3||placement==4){
+            maxX = core.width / 2 + space;
+            minX = core.width-space * 4;
+        }
+
+        if(placement==1||placement==3){
             maxY = core.height - core.height / 4+space*2;
             minY = core.height - core.height / 8 - space;
         }
-        if(placement==2){
-            maxX = space * 3;
-            minX = core.width / 2 - space;
+
+        if(placement==2||placement==4){
             maxY = core.height - core.height / 8 + space;
             minY = core.height- space*3;
         }
-        if(placement==3){
-            maxX = core.width / 2 + space;
-            minX = core.width-space * 4;
-            maxY = core.height - core.height / 4+space*2;
-            minY = core.height - core.height / 8 - space;
-        }
-        if(placement==4){
-            maxX = core.width / 2 + space;
-            minX = core.width-space * 4;
-            maxY = core.height - core.height / 8 + space;
-            minY = core.height- space*3;
-        }
+
+        core.fill(0, 0, 255, 120);
 
         if((core.mouseX<minX)&&(core.mouseX>maxX)&&(core.mouseY<minY)&&(core.mouseY>maxY)) {
             core.fill(120, 120, 255, 240);
-        }else{
-            core.fill(0, 0, 255, 120);
+                this.correct=correct;
+                optionHover=true;
         }
 
         core.rectMode(CORNERS);

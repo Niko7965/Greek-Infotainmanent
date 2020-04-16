@@ -24,7 +24,7 @@ public class Main extends PApplet {
     ArrayList<Room> allRooms = new ArrayList<Room>();
 
     //A boolean that controls whether a quiz is active
-    Boolean quizMode = false;
+    public Boolean quizMode = false;
 
     //The main class, which instantiates the processing main.
     public static void main(String[] args){
@@ -158,10 +158,22 @@ public class Main extends PApplet {
     //Toggles the quizmode
     public void triggerQuiz (){
         if(!quizMode){
-            q1.activateQuiz(1);
+            q1.activateQuiz(round(random(0,14)),random(0,4));
             quizMode = true;
-        }else{
-            quizMode = false;
+        }
+    }
+
+    public void mouseClicked() {
+        if (q1.optionHover == true) {
+            if (q1.correct == true) {
+                quizMode = false;
+                println("det er rigtigt!");
+            }
+            if (q1.correct == false) {
+                quizMode = false;
+                println("FORKERT!");
+            }
+
         }
     }
 
