@@ -154,8 +154,6 @@ public class Main extends PApplet {
 
     }
 
-
-
     //Toggles the quizmode
     public void triggerQuiz (){
         if(!quizMode){
@@ -167,15 +165,21 @@ public class Main extends PApplet {
     public void mouseClicked() {
         if (q1.optionHover) {
             if (q1.correct) {
-                quizMode = false;
-                println("det er rigtigt!");
+
+                q1.success=true;
+                q1.results=true;
+
             }
             if (!q1.correct) {
-                quizMode = false;
-                println("FORKERT!");
+                
+                q1.success=false;
+                q1.results=true;
+                p1.health--;
             }
-
         }
     }
+
+
+
 
 }

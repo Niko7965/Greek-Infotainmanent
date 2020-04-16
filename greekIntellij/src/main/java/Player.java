@@ -24,6 +24,9 @@ public class Player {
     float x;
     float y;
 
+    //Player HP
+    int health=3;
+
     //Boolean for movement directions
     boolean moveUp=false;
     boolean moveDown=false;
@@ -39,14 +42,11 @@ public class Player {
     PImage spriteLeft;
     PImage spriteRight;
 
-
-
     //Contstructor for Player class
     public Player(float x,float y, PApplet core, Main main){
         this.x =  x;
         this.y =  y;
         this.core = core;
-
         this.main = main;
 
         //Loads sprites
@@ -61,8 +61,8 @@ public class Player {
     //Tries interaction
     public void interact(){
         //main.currentRoom.SpaceInteraction(int() x, int() y,direction);
-
     }
+
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
         //System.out.println(x +","+y);
@@ -111,10 +111,6 @@ public class Player {
             direction = "r";
         }
 
-
-
-
-
     }
 
 
@@ -125,7 +121,10 @@ public class Player {
 
     //Draws the player based on coordinates
     public void drawPlayer(){
-        movement();
+        if(main.quizMode==false) {
+            movement();
+        }
+
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
