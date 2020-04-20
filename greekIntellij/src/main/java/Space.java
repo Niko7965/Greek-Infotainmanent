@@ -9,13 +9,14 @@ public class Space {
     //Room variables
     boolean solid;
     int interaction;
+    Room r;
 
-
-    public Space(int id, boolean solid, int interaction){
+    public Space(int id, boolean solid, int interaction, Room room){
         this.id = id;
 
         this.solid=solid;
         this.interaction = interaction;
+        this.r = room;
 
     }
 
@@ -23,7 +24,11 @@ public class Space {
     public boolean getSolid(){
         return solid;
     }
-    public int getInteraction(){return interaction;}
+
+
+    public int getInteraction(){
+        r.log.enableHint(r.id,interaction);
+        return interaction;}
 
 
 

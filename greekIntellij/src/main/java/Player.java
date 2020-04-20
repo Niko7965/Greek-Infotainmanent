@@ -30,6 +30,8 @@ public class Player {
     boolean moveRight=false;
     boolean moveLeft=false;
 
+    int interacting = 0;
+
     String direction = "d";
 
     //Default sprite, as well for directional sprites
@@ -60,56 +62,85 @@ public class Player {
 
     //Tries interaction
     public void interact(){
-        //main.currentRoom.SpaceInteraction(int() x, int() y,direction);
+        if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
+            ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
+            if(interacting<parts.size()){
+                System.out.println(parts.get(interacting));
+                interacting++;
+            }
+            else {
+                interacting = 0;
+            }
+
+        }
+
+
 
     }
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
         //System.out.println(x +","+y);
+        if(interacting == 0) {
+            if (x > main.currentRoom.widthInTiles - 2) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
+                x = 0;
+            }
 
-        if(x > main.currentRoom.widthInTiles-2){
-            main.currentRoom = main.allRooms.get(main.currentRoom.id+1);
-            x=0;
-        }
-
-        if( x < 0){
-            main.currentRoom = main.allRooms.get(main.currentRoom.id-1);
-            x=main.currentRoom.widthInTiles-2;
-        }
-
-
-        if( y < 0){
-            main.currentRoom = main.allRooms.get(main.currentRoom.id-5);
-            y=main.currentRoom.heightInTiles-2;
-        }
+            if (x < 0) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
+                x = main.currentRoom.widthInTiles - 2;
+            }
 
 
-        if( y > main.currentRoom.heightInTiles-2){
-            main.currentRoom = main.allRooms.get(main.currentRoom.id+5);
-            y=0;
-        }
+            if (y < 0) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
+                y = main.currentRoom.heightInTiles - 2;
+            }
 
 
-        if(moveUp&&!main.currentRoom.SpaceUpSolid((int) x, (int) y)){
-            sprite=spriteUp;
-            y--;
-            direction ="u";
+            if (y >= main.currentRoom.heightInTiles - 2) {
+                System.out.println(main.currentRoom.id);
+                main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
+                y = 0;
+                System.out.println(main.currentRoom.id);
+            }
+
+
+            if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
+                y--;
+            }
+
+            if (moveDown && !main.currentRoom.spaceDownSolid((int) x, (int) y)) {
+                y++;
+            }
+            if (moveLeft && !main.currentRoom.spaceLeftSolid((int) x, (int) y)) {
+                x--;
+            }
+            if (moveRight && !main.currentRoom.spaceRightSolid((int) x, (int) y)) {
+                x++;
+            }
+
+            if (moveUp) {
+                sprite = spriteUp;
+                direction = "u";
+            }
+
+            if (moveDown) {
+                sprite = spriteDown;
+                direction = "d";
+            }
+
+            if (moveLeft) {
+                sprite = spriteLeft;
+                direction = "l";
+            }
+
+            if (moveRight) {
+                sprite = spriteRight;
+                direction = "r";
+            }
         }
-        if(moveDown&&!main.currentRoom.SpaceDownSolid((int) x, (int) y)){
-            sprite=spriteDown;
-            y++;
-            direction = "d";
-        }
-        if(moveLeft && !main.currentRoom.SpaceLeftSolid((int) x, (int) y)){
-            sprite =spriteLeft;
-            x--;
-            direction = "l";
-        }
-        if(moveRight && !main.currentRoom.SpaceRightSolid((int) x, (int) y)){
-            sprite =spriteRight;
-            x++;
-            direction = "r";
-        }
+
 
 
 

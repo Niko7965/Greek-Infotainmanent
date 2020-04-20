@@ -16,6 +16,10 @@ public class Room {
     //Processing core for using processing methods
     PApplet core;
 
+
+    Logbook log;
+
+
     //Id of room
     int id;
 
@@ -34,13 +38,15 @@ public class Room {
     int heightInTiles = 20;
 
     //Constructor for room
-    public Room(int id, String ImageURL,String tileMapURL, String interactionUrl, PApplet core){
+    public Room(int id, String ImageURL,String tileMapURL, String interactionUrl, PApplet core, Main main){
         this.id = id;
         this.core = core;
         setTileMap(tileMapURL);
         setBackground(ImageURL);
         fillSpaces();
         this.interactionUrl = interactionUrl;
+        this.log = main.l1;
+
     }
 
     //Sets the background image as well as tilemap
@@ -73,15 +79,15 @@ public class Room {
             int c =tileMap.get(xFromId(i),yFromId(i));
 
             if(c == black) {
-                spaces.add(new Space(spaces.size(), true, 0));
+                spaces.add(new Space(spaces.size(), true, 0,this));
             }
 
             else if(c == yellow){
-                spaces.add(new Space(spaces.size(),true,1));
+                spaces.add(new Space(spaces.size(),true,1,this));
             }
 
             else {
-                spaces.add(new Space(spaces.size(), false, 0));
+                spaces.add(new Space(spaces.size(), false, 0,this));
 
             }
         }
@@ -105,11 +111,10 @@ public class Room {
         return interactionList.get(n);
     }
 
-    ArrayList interactionSplitter(String sentence){
+    ArrayList<String> interactionSplitter(String sentence){
         String[] lineList = sentence.split(";");
-        ArrayList<String> lineArrayList = (ArrayList<String>) Arrays.asList(lineList);
 
-        return lineArrayList;
+        return new ArrayList<String>(Arrays.asList(lineList));
     }
 
 
@@ -132,28 +137,28 @@ public class Room {
         return (y+1)*widthInTiles+(x+1);
     }
 
-    public boolean SpaceUpSolid(int x, int y){
+    public boolean spaceUpSolid(int x, int y){
         int tile = coordToId(x,y)-widthInTiles;
         return spaces.get(tile).getSolid();
     }
 
-    public boolean SpaceDownSolid(int x, int y){
+    public boolean spaceDownSolid(int x, int y){
         int tile = coordToId(x,y)+widthInTiles;
         return spaces.get(tile).getSolid();
 
     }
 
-    public boolean SpaceLeftSolid(int x, int y){
+    public boolean spaceLeftSolid(int x, int y){
         int tile = coordToId(x,y)-1;
         return spaces.get(tile).getSolid();
     }
 
-    public boolean SpaceRightSolid(int x, int y){
+    public boolean spaceRightSolid(int x, int y){
         int tile = coordToId(x,y)+1;
         return spaces.get(tile).getSolid();
     }
 
-    public int SpaceInteraction(int x, int y, String direction){
+    public int spaceInteraction(int x, int y, String direction){
         if(direction.equals("u")){
             int tile = coordToId(x,y)-widthInTiles;
             return spaces.get(tile).getInteraction();

@@ -13,9 +13,10 @@ import org.apache.commons.io.FileUtils;
 
 public class Main extends PApplet {
 
-    //Quiz and player object
+    //Quiz player, and logbook objects.
     Player p1;
     Quiz q1;
+    Logbook l1;
 
     //The room that is currently active
     Room currentRoom;
@@ -25,6 +26,8 @@ public class Main extends PApplet {
 
     //A boolean that controls whether a quiz is active
     public Boolean quizMode = false;
+
+
 
     //The main class, which instantiates the processing main.
     public static void main(String[] args){
@@ -43,6 +46,8 @@ public class Main extends PApplet {
     //Loads the rooms, and creates a player and quiz object.
     public void setup(){
         frameRate(20);
+        l1 = new Logbook();
+
         try {
             loadRooms();
         } catch (IOException e) {
@@ -53,6 +58,8 @@ public class Main extends PApplet {
        // Room r1 = new Room("1","Images\\Backgrounds\\r5.png","Images\\Tilemaps\\r5.png",this);
         p1 = new Player(10,10,this,this);
         q1 = new Quiz(this,this);
+
+
 
         //Sets the first room in the list as the current room
         currentRoom=allRooms.get(0);
@@ -75,6 +82,7 @@ public class Main extends PApplet {
     public void keyPressed(){
         if(key =='a' || key =='A'){
             p1.moveLeft=true;
+
         }
         if(key =='d' || key =='D'){
             p1.moveRight=true;
@@ -87,8 +95,11 @@ public class Main extends PApplet {
         }
 
         if(key == ' '){
-            System.out.println("SPACE");
             p1.interact();
+        }
+
+        if(key == 'l'||key =='L'){
+            l1.getHints();
         }
     }
 
@@ -106,9 +117,9 @@ public class Main extends PApplet {
             p1.moveDown=false;
         }
         if(key =='q'||key =='Q'){
-
             triggerQuiz();
         }
+
     }
 
     public int getKeyCode(){
@@ -132,9 +143,9 @@ public class Main extends PApplet {
 
         //Cycles through the lists, and creates new room objects for each pair of tilemaps and backgrounds
         for(int i = 0; i<listOfBackgrounds.size(); i++){
-            //System.out.println(listOfBackgrounds.get(i));
+            System.out.println(listOfBackgrounds.get(i));
             //System.out.println(listOfTilemaps.get(i));
-            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),"Files/Interactions/r0"+".txt",this));
+            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),"Files/Interactions/r0"+".txt",this, this));
         }
 
 
