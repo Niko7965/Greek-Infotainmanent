@@ -93,9 +93,11 @@ public class Quiz {
             }
         }
 
-        //Option1
+        //OPtion
         optionHover=false;
         shuffleOptions();
+
+        //Check answer
         if(results==true) {
             if (resultsTimer > 0) {
                 resultsTimer--;
@@ -110,6 +112,7 @@ public class Quiz {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {
+                            core.link("https://www.youtube.com/watch?v=oyFQVZ2h0V8");
                             main.bossMode = false;
                             main.quizMode = false;
                         }
