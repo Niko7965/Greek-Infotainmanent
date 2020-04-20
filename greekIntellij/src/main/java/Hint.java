@@ -7,4 +7,11 @@ public class Hint {
         this.active=active;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setActive(boolean active){
+        this.active = active;
+    }
 }

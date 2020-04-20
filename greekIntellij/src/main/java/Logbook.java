@@ -12,6 +12,7 @@ public class Logbook {
     public Logbook(){
         playerHints.add(new Hint("Dette er en logbog, hvor alle hints du finder, vil blive skrevet ned",true));
         allHints = loadAllHints();
+        setPlayerHints();
     }
 
 
@@ -35,18 +36,23 @@ public class Logbook {
 
     public void setPlayerHints(){
         for (String allHint : allHints) {
-            //Hint hint = new Hint(allHint)
+            Hint hint = new Hint(allHint,false);
+            playerHints.add(hint);
         }
     }
 
+
+
     public void enableHint(int roomNumber, int interactionNumber){
-        //playerHints.add(allHints.get((roomNumber*5)+interactionNumber));
+        playerHints.get((roomNumber*5)+interactionNumber).setActive(true);
 
     }
 
     public void getHints(){
-        for (String playerHint : playerHints) {
-            System.out.println(playerHint);
+        for (int i = 0; i <playerHints.size() ; i++) {
+            if(playerHints.get(i).active) {
+                System.out.println(playerHints.get(i).getContent());
+            }
 
         }
     }

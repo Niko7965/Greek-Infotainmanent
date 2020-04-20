@@ -151,26 +151,7 @@ public class Player {
         }
 
 
-        if(moveUp&&!main.currentRoom.SpaceUpSolid((int) x, (int) y)){
-            sprite=spriteUp;
-            y--;
-            direction ="u";
-        }
-        if(moveDown&&!main.currentRoom.SpaceDownSolid((int) x, (int) y)){
-            sprite=spriteDown;
-            y++;
-            direction = "d";
-        }
-        if(moveLeft && !main.currentRoom.SpaceLeftSolid((int) x, (int) y)){
-            sprite =spriteLeft;
-            x--;
-            direction = "l";
-        }
-        if(moveRight && !main.currentRoom.SpaceRightSolid((int) x, (int) y)){
-            sprite =spriteRight;
-            x++;
-            direction = "r";
-        }
+
 
     }
 
