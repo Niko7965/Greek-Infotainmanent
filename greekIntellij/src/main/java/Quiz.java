@@ -9,59 +9,37 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static processing.core.PConstants.*;
+import static processing.core.PConstants.CORNERS;
+import static processing.core.PConstants.UP;
 
 public class Quiz {
     PApplet core;
     int quizNumber=1;
-    Main main;
+    String question;
+    String answer;
+    Table questions;
     float space;
     float maxX;
     float maxY;
     float minX;
     float minY;
-    int resultsTimer;
-    boolean results;
     boolean correct;
-    boolean success;
     boolean optionHover;
-    int level;
     float correctPlacement;
-    PImage sphinx;
 
     public Quiz(PApplet core, Main main){
         this.core= core;
 
-        this.main = main;
-        sphinx = core.loadImage("Images/Sprites/sphinx.jpg");
     }
 
     public void activateQuiz(int quizNumber,float correctPlacement){
         this.correctPlacement=correctPlacement;
         this.quizNumber = quizNumber;
-        results=false;
-        resultsTimer=50;
-    }
 
-    public void activateBoss(){
-        level=0;
-        activateQuiz(level,core.random(0,4));
     }
-
 
 
     public void drawQuiz(){
-
-        //Sphinx billede
-        if(main.bossMode==true) {
-            core.image(sphinx, 0, 0, core.width, core.height);
-        }
-
-        //Dark backdrop
-        core.rectMode(CORNER);
-        core.noStroke();
-        core.fill(0,0,0,40);
-        core.rect(0,0,core.width,core.height);
 
         //QuizBox
         core.rectMode(CORNERS);
@@ -72,60 +50,16 @@ public class Quiz {
         core.rect(space,core.height-core.height/4,core.width-space*2,core.height-space,7);
 
         //Question
-        if(results==false) {
-            core.fill(255, 255, 255, 255);
-            core.textSize(core.width / 25);
-            core.textAlign(core.CENTER, core.CENTER);
-            core.text(questionSplitter(questionString(quizNumber), 1), core.width / 4, core.height / 6, core.width - core.width / 4, core.height - core.height / 4);
-        }else{
-            core.textSize(core.width / 10);
-            core.textAlign(core.CENTER, core.CENTER);
-            if(correct==true){
-                core.fill(20, 255, 20, 255);
-                core.text("RIGTIGT", core.width / 2, core.height / 2);
-            }else {
-                core.fill(255, 20, 20, 255);
-                if(main.p1.health<1){
-                    core.text("GAME OVER", core.width / 2, core.height / 2);
-                }else {
-                    core.text("FORKERT", core.width / 2, core.height / 2);
-                }
-            }
-        }
+        core.fill(255,255,255,255);
+        core.textSize(core.width/25);
+        core.textAlign(core.CENTER,core.CENTER);
+        core.text(questionSplitter(questionString(quizNumber),1),core.width/4,core.height/6,core.width-core.width/4,core.height-core.height/4);
 
         //Option1
         optionHover=false;
+
         shuffleOptions();
-        if(results==true) {
-            if (resultsTimer > 0) {
-                resultsTimer--;
-            } else {
-                if(main.bossMode==true) {
-                    if(main.p1.health==0){
-                        main.bossMode = false;
-                        main.quizMode = false;
-                        main.gameOver();
-                    }else {
-                        if (level < 3) {
-                            level++;
-                            activateQuiz(level, core.random(0, 4));
-                        } else {
-                            main.bossMode = false;
-                            main.quizMode = false;
-                        }
-                    }
-                }else{
-                    main.quizMode = false;
-                    if(main.p1.health<1){
-                        main.gameOver();
-                    }
-                }
-            }
-
-        }
     }
-
-
 
     public void shuffleOptions(){
         if(correctPlacement>3){
@@ -179,16 +113,10 @@ public class Quiz {
 
         core.fill(0, 0, 255, 120);
 
-        if(!results) {
-            if ((core.mouseX < minX) && (core.mouseX > maxX) && (core.mouseY < minY) && (core.mouseY > maxY)) {
-                core.fill(120, 120, 255, 240);
-                this.correct = correct;
-                optionHover = true;
-            }
-        }else{
-            if(correct){
-                core.fill(20, 220, 20, 240);
-            }
+        if((core.mouseX<minX)&&(core.mouseX>maxX)&&(core.mouseY<minY)&&(core.mouseY>maxY)) {
+            core.fill(120, 120, 255, 240);
+                this.correct=correct;
+                optionHover=true;
         }
 
         core.rectMode(CORNERS);
@@ -199,7 +127,7 @@ public class Quiz {
         core.textSize(core.width/42);
         core.textAlign(core.LEFT,core.TOP);
         core.fill(255,255,255,255);
-        core.text(text,maxX+space,maxY+space,minX-space,minY-space+10);
+        core.text(text,maxX+space,maxY+space,minX-space,minY-space);
 
     }
 

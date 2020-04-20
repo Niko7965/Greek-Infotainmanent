@@ -3,13 +3,13 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.KeyEvent;
 
+import static processing.core.PConstants.CORNERS;
+import static processing.core.PConstants.UP;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-
-import static processing.core.PConstants.*;
 
 
 //Class made for the player
@@ -23,9 +23,6 @@ public class Player {
     //Coordinates for the player
     float x;
     float y;
-
-    //Player HP
-    int health=3;
 
     //Boolean for movement directions
     boolean moveUp=false;
@@ -44,16 +41,14 @@ public class Player {
     PImage spriteLeft;
     PImage spriteRight;
 
-    //Heart sprites
-    PImage heartLife;
-    PImage heartDeath;
-    PImage heart;
+
 
     //Contstructor for Player class
     public Player(float x,float y, PApplet core, Main main){
         this.x =  x;
         this.y =  y;
         this.core = core;
+
         this.main = main;
 
         //Loads sprites
@@ -62,10 +57,6 @@ public class Player {
         spriteLeft= core.loadImage("Images/Sprites/PlayerLeft.png");
         spriteRight= core.loadImage("Images/Sprites/PlayerRight.png");
         sprite =spriteDown;
-
-        //Loads hearts
-        heartLife = core.loadImage("Images/Sprites/heart1.png");
-        heartDeath = core.loadImage("Images/Sprites/heart2.png");
     }
 
 
@@ -151,33 +142,11 @@ public class Player {
         }
 
 
-        if(moveUp&&!main.currentRoom.SpaceUpSolid((int) x, (int) y)){
-            sprite=spriteUp;
-            y--;
-            direction ="u";
-        }
-        if(moveDown&&!main.currentRoom.SpaceDownSolid((int) x, (int) y)){
-            sprite=spriteDown;
-            y++;
-            direction = "d";
-        }
-        if(moveLeft && !main.currentRoom.SpaceLeftSolid((int) x, (int) y)){
-            sprite =spriteLeft;
-            x--;
-            direction = "l";
-        }
-        if(moveRight && !main.currentRoom.SpaceRightSolid((int) x, (int) y)){
-            sprite =spriteRight;
-            x++;
-            direction = "r";
-        }
+
+
+
 
     }
-
-    public void damage(){
-        health--;
-    }
-
 
 
     //Old function to load the sprite, might be removed later
@@ -187,29 +156,10 @@ public class Player {
 
     //Draws the player based on coordinates
     public void drawPlayer(){
-        //FLytter spilleren
-        if(main.quizMode==false) {
-            movement();
-        }
-
-        //Tegner spilleren
+        movement();
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
-
-    }
-
-    public void drawLife(){
-        //Tegner spillerens liv
-        core.imageMode(CORNER);
-        core.tint(255, 190);
-        if(health<1){ heart=heartDeath;}else{heart=heartLife;};
-        core.image(heart,core.width*1/60,core.width/50,core.width/16,core.width/16);
-        if(health<2) heart=heartDeath;
-        core.image(heart,core.width*5/60,core.width/50,core.width/16,core.width/16);
-        if(health<3) heart=heartDeath;
-        core.image(heart,core.width*9/60,core.width/50,core.width/16,core.width/16);
-        core.tint(255);
     }
 
 }
