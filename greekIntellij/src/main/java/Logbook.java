@@ -44,8 +44,9 @@ public class Logbook {
 
 
     public void enableHint(int roomNumber, int interactionNumber){
-        playerHints.get((roomNumber*5)+interactionNumber).setActive(true);
-
+        if(interactionNumber>0) {
+            playerHints.get((roomNumber * 5) + interactionNumber + 1).setActive(true);
+        }
     }
 
     public void getHints(){

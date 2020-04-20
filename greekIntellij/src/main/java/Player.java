@@ -88,30 +88,33 @@ public class Player {
     }
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
-        //System.out.println(x +","+y);
+        System.out.println(x +","+y);
         if(interacting == 0) {
-            if (x > main.currentRoom.widthInTiles - 2) {
+            if (x > 24) {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
                 x = 0;
             }
 
             if (x < 0) {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
-                x = main.currentRoom.widthInTiles - 2;
+                x = main.currentRoom.widthInTiles - 3;
             }
 
 
-            if (y < 0) {
+            if (y < 1) {
+
                 main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
-                y = main.currentRoom.heightInTiles - 2;
+                y = main.currentRoom.heightInTiles - 3;
+
+
             }
 
 
-            if (y >= main.currentRoom.heightInTiles - 2) {
-                System.out.println(main.currentRoom.id);
+            if (y >= 18) {
+
                 main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
-                y = 0;
-                System.out.println(main.currentRoom.id);
+                y = 1;
+
             }
 
 
@@ -169,7 +172,7 @@ public class Player {
     //Draws the player based on coordinates
     public void drawPlayer(){
         //FLytter spilleren
-        if(main.quizMode==false) {
+        if(!main.quizMode) {
             movement();
         }
 

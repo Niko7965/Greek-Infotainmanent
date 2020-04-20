@@ -37,6 +37,8 @@ public class Room {
     int widthInTiles = 27;
     int heightInTiles = 20;
 
+    int tileSize;
+
     //Constructor for room
     public Room(int id, String ImageURL,String tileMapURL, String interactionUrl, PApplet core, Main main){
         this.id = id;
@@ -46,7 +48,7 @@ public class Room {
         fillSpaces();
         this.interactionUrl = interactionUrl;
         this.log = main.l1;
-
+        tileSize=2*background.width/27;
     }
 
     //Sets the background image as well as tilemap
@@ -58,7 +60,7 @@ public class Room {
     //Draws the room
     public void drawRoom(){
         core.imageMode(CORNERS);
-        core.image(background,0,0,core.width,core.height);
+        core.image(background, -tileSize, -tileSize,core.width+tileSize,core.height+tileSize);
 
     }
 
