@@ -25,6 +25,7 @@ public class Main extends PApplet {
 
     //A boolean that controls whether a quiz is active
     public Boolean quizMode = false;
+    public Boolean bossMode = false;
 
     //The main class, which instantiates the processing main.
     public static void main(String[] args){
@@ -67,6 +68,7 @@ public class Main extends PApplet {
        if(quizMode) {
            q1.drawQuiz();
        }
+       p1.drawLife();
     }
 
 
@@ -108,6 +110,10 @@ public class Main extends PApplet {
         if(key =='q'||key =='Q'){
 
             triggerQuiz();
+        }
+        if(key =='b'||key =='B'){
+
+            triggerBoss();
         }
     }
 
@@ -162,6 +168,15 @@ public class Main extends PApplet {
         }
     }
 
+    public void triggerBoss (){
+        if(!quizMode){
+            q1.activateBoss();
+            quizMode = true;
+            bossMode = true;
+        }
+    }
+
+
     public void mouseClicked() {
         if (q1.optionHover) {
             if (q1.correct) {
@@ -174,12 +189,10 @@ public class Main extends PApplet {
 
                 q1.success=false;
                 q1.results=true;
-                p1.health--;
+                p1.damage();
             }
         }
     }
-
-
 
 
 }

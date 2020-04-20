@@ -25,13 +25,15 @@ public class Quiz {
     boolean correct;
     boolean success;
     boolean optionHover;
+    int level;
     float correctPlacement;
+    PImage sphinx;
 
     public Quiz(PApplet core, Main main){
         this.core= core;
 
         this.main = main;
-
+        sphinx = core.loadImage("Images/Sprites/sphinx.jpg");
     }
 
     public void activateQuiz(int quizNumber,float correctPlacement){
@@ -41,8 +43,19 @@ public class Quiz {
         resultsTimer=50;
     }
 
+    public void activateBoss(){
+        level=0;
+        activateQuiz(level,core.random(0,4));
+    }
+
+
 
     public void drawQuiz(){
+
+        //Sphinx billede
+        if(main.bossMode==true) {
+            core.image(sphinx, 0, 0, core.width, core.height);
+        }
 
         //Dark backdrop
         core.rectMode(CORNER);
@@ -69,27 +82,45 @@ public class Quiz {
             core.textAlign(core.CENTER, core.CENTER);
             if(correct==true){
                 core.fill(20, 255, 20, 255);
-                core.text("RIGTIGT!", core.width / 2, core.height / 2);
+                core.text("RIGTIGT", core.width / 2, core.height / 2);
             }else {
                 core.fill(255, 20, 20, 255);
-                core.text("FORKERT!", core.width / 2, core.height /2);
+                if(main.p1.health<1){
+                    core.text("GAME OVER", core.width / 2, core.height / 2);
+                }else {
+                    core.text("FORKERT", core.width / 2, core.height / 2);
+                }
             }
         }
 
         //Option1
         optionHover=false;
         shuffleOptions();
-
         if(results==true) {
             if (resultsTimer > 0) {
                 resultsTimer--;
             } else {
-                main.quizMode = false;
+                if(main.bossMode==true) {
+                    if(main.p1.health==0){
+                        main.bossMode = false;
+                        main.quizMode = false;
+                        main.p1.health=3;
+                    }else {
+                        if (level < 3) {
+                            level++;
+                            activateQuiz(level, core.random(0, 4));
+                        } else {
+                            main.bossMode = false;
+                            main.quizMode = false;
+                        }
+                    }
+                }else{
+                    main.quizMode = false;
+                }
             }
 
         }
     }
-
 
     public void shuffleOptions(){
         if(correctPlacement>3){
@@ -163,7 +194,7 @@ public class Quiz {
         core.textSize(core.width/42);
         core.textAlign(core.LEFT,core.TOP);
         core.fill(255,255,255,255);
-        core.text(text,maxX+space,maxY+space,minX-space,minY-space);
+        core.text(text,maxX+space,maxY+space,minX-space,minY-space+10);
 
     }
 

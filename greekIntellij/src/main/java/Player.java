@@ -45,6 +45,7 @@ public class Player {
     //Heart sprites
     PImage heartLife;
     PImage heartDeath;
+    PImage heart;
 
     //Contstructor for Player class
     public Player(float x,float y, PApplet core, Main main){
@@ -121,6 +122,12 @@ public class Player {
 
     }
 
+    public void damage(){
+        health--;
+
+    }
+
+
 
     //Old function to load the sprite, might be removed later
     public void setSprite(String ImageURL){
@@ -129,16 +136,28 @@ public class Player {
 
     //Draws the player based on coordinates
     public void drawPlayer(){
+        //FLytter spilleren
         if(main.quizMode==false) {
             movement();
         }
+
+        //Tegner spilleren
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
+
+    }
+
+    public void drawLife(){
+        //Tegner spillerens liv
         core.imageMode(CORNER);
         core.tint(255, 190);
-        core.image(heartLife,core.width/50,core.width/50,core.width/16,core.width/16);
-        core.image(heartDeath,core.width/12,core.width/50,core.width/16,core.width/16);
+        if(health<1){ heart=heartDeath;}else{heart=heartLife;};
+        core.image(heart,core.width*1/60,core.width/50,core.width/16,core.width/16);
+        if(health<2) heart=heartDeath;
+        core.image(heart,core.width*5/60,core.width/50,core.width/16,core.width/16);
+        if(health<3) heart=heartDeath;
+        core.image(heart,core.width*9/60,core.width/50,core.width/16,core.width/16);
         core.tint(255);
     }
 
