@@ -26,6 +26,7 @@ public class Main extends PApplet {
 
     //A boolean that controls whether a quiz is active
     public Boolean quizMode = false;
+    public Boolean bossMode = false;
 
 
 
@@ -74,6 +75,7 @@ public class Main extends PApplet {
        if(quizMode) {
            q1.drawQuiz();
        }
+       p1.drawLife();
     }
 
 
@@ -119,7 +121,10 @@ public class Main extends PApplet {
         if(key =='q'||key =='Q'){
             triggerQuiz();
         }
+        if(key =='b'||key =='B'){
 
+            triggerBoss();
+        }
     }
 
     public int getKeyCode(){
@@ -165,8 +170,6 @@ public class Main extends PApplet {
 
     }
 
-
-
     //Toggles the quizmode
     public void triggerQuiz (){
         if(!quizMode){
@@ -175,18 +178,37 @@ public class Main extends PApplet {
         }
     }
 
+    public void triggerBoss (){
+        if(!quizMode){
+            q1.activateBoss();
+            quizMode = true;
+            bossMode = true;
+        }
+    }
+
+
     public void mouseClicked() {
         if (q1.optionHover) {
             if (q1.correct) {
-                quizMode = false;
-                println("det er rigtigt!");
+
+                q1.success=true;
+                q1.results=true;
+
             }
             if (!q1.correct) {
-                quizMode = false;
-                println("FORKERT!");
-            }
 
+                q1.success=false;
+                q1.results=true;
+                p1.damage();
+            }
         }
+    }
+
+    public void gameOver(){
+        p1.health=3;
+        p1.x=10;
+        p1.y=10;
+        currentRoom=allRooms.get(0);
     }
 
 }
