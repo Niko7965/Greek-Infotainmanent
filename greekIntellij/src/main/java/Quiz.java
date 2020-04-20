@@ -104,7 +104,7 @@ public class Quiz {
                     if(main.p1.health==0){
                         main.bossMode = false;
                         main.quizMode = false;
-                        main.p1.health=3;
+                        main.gameOver();
                     }else {
                         if (level < 3) {
                             level++;
@@ -116,11 +116,16 @@ public class Quiz {
                     }
                 }else{
                     main.quizMode = false;
+                    if(main.p1.health<1){
+                        main.gameOver();
+                    }
                 }
             }
 
         }
     }
+
+
 
     public void shuffleOptions(){
         if(correctPlacement>3){

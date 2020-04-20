@@ -194,5 +194,11 @@ public class Main extends PApplet {
         }
     }
 
+    public void gameOver(){
+        p1.health=3;
+        p1.x=10;
+        p1.y=10;
+        currentRoom=allRooms.get(0);
+    }
 
 }

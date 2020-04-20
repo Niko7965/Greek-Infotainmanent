@@ -124,7 +124,6 @@ public class Player {
 
     public void damage(){
         health--;
-
     }
 
 
