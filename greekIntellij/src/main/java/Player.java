@@ -182,7 +182,7 @@ public class Player {
     //Draws the player based on coordinates
     public void drawPlayer(){
         //FLytter spilleren
-        if((!main.quizMode)||(!textMode)) {
+        if((!main.quizMode)&&(!textMode)) {
             movement();
         }
 
