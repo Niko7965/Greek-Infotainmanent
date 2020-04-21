@@ -13,20 +13,20 @@ import static processing.core.PConstants.*;
 
 public class Quiz {
     PApplet core;
-    int quizNumber=1;
     Main main;
     float space;
     float maxX;
     float maxY;
     float minX;
     float minY;
+    float correctPlacement;
+    int quizNumber=1;
     int resultsTimer;
+    int level;
     boolean results;
     boolean correct;
     boolean success;
     boolean optionHover;
-    int level;
-    float correctPlacement;
     PImage sphinx;
 
     public Quiz(PApplet core, Main main){
@@ -108,7 +108,7 @@ public class Quiz {
                         main.quizMode = false;
                         main.gameOver();
                     }else {
-                        if (level < 3) {
+                        if (level < 15) {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {
