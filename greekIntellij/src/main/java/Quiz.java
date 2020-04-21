@@ -48,8 +48,6 @@ public class Quiz {
         activateQuiz(level,core.random(0,4));
     }
 
-
-
     public void drawQuiz(){
 
         //Sphinx billede
@@ -93,7 +91,7 @@ public class Quiz {
             }
         }
 
-        //OPtion
+        //Option
         optionHover=false;
         shuffleOptions();
 
@@ -108,7 +106,7 @@ public class Quiz {
                         main.quizMode = false;
                         main.gameOver();
                     }else {
-                        if (level < 15) {
+                        if (level < 3) {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {

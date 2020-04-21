@@ -33,6 +33,8 @@ public class Player {
     boolean moveRight=false;
     boolean moveLeft=false;
 
+    boolean textMode = false;
+
     int interacting = 0;
 
     String direction = "d";
@@ -74,6 +76,7 @@ public class Player {
         if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
             ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
             if(interacting<parts.size()){
+                textBox(parts.get(interacting));
                 System.out.println(parts.get(interacting));
                 interacting++;
             }
@@ -83,9 +86,17 @@ public class Player {
 
         }
 
-
-
     }
+
+    public void textBox(String text) {
+        if (!textMode) {
+            main.t1.activateText(text);
+            textMode = true;
+        }else{
+            textMode = false;
+        }
+    }
+
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
         //System.out.println(x +","+y);
@@ -171,7 +182,7 @@ public class Player {
     //Draws the player based on coordinates
     public void drawPlayer(){
         //FLytter spilleren
-        if(!main.quizMode) {
+        if((!main.quizMode)||(!textMode)) {
             movement();
         }
 
@@ -184,15 +195,25 @@ public class Player {
 
     public void drawLife(){
         //Tegner spillerens liv
-        core.imageMode(CORNER);
-        core.tint(255, 190);
-        if(health<1){ heart=heartDeath;}else{heart=heartLife;};
-        core.image(heart,core.width*1/60,core.width/50,core.width/16,core.width/16);
-        if(health<2) heart=heartDeath;
-        core.image(heart,core.width*5/60,core.width/50,core.width/16,core.width/16);
-        if(health<3) heart=heartDeath;
-        core.image(heart,core.width*9/60,core.width/50,core.width/16,core.width/16);
-        core.tint(255);
+        if(!textMode) {
+            core.imageMode(CORNER);
+            core.tint(255, 190);
+            if (health < 1) {
+                heart = heartDeath;
+            } else {
+                heart = heartLife;
+            }
+            ;
+            core.image(heart, core.width * 1 / 60, core.width / 50, core.width / 16, core.width / 16);
+            if (health < 2) heart = heartDeath;
+            core.image(heart, core.width * 5 / 60, core.width / 50, core.width / 16, core.width / 16);
+            if (health < 3) heart = heartDeath;
+            core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
+            core.tint(255);
+        }else{
+            main.t1.drawTextBox();
+        }
     }
+
 
 }

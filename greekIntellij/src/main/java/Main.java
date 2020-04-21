@@ -25,10 +25,9 @@ public class Main extends PApplet {
     //A list of all rooms
     ArrayList<Room> allRooms = new ArrayList<Room>();
 
-    //Booleans that controls whether a quiz, boss or textBox is active
+    //Booleans that controls whether a quiz is active
     public Boolean quizMode = false;
     public Boolean bossMode = false;
-    public Boolean textMode = false;
 
 
     //The main class, which instantiates the processing main.
@@ -62,8 +61,6 @@ public class Main extends PApplet {
         p1 = new Player(10,10,this,this);
         q1 = new Quiz(this,this);
 
-
-
         //Sets the first room in the list as the current room
         currentRoom=allRooms.get(0);
 
@@ -77,7 +74,9 @@ public class Main extends PApplet {
        if(quizMode) {
            q1.drawQuiz();
        }
-       p1.drawLife();
+
+            p1.drawLife();
+
     }
 
 
@@ -155,8 +154,6 @@ public class Main extends PApplet {
             allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),"Files/Interactions/r0"+".txt",this, this));
         }
 
-
-
     }
 
     //Returns an arraylist of strings, that are the relative url paths of png files the folder for a given string url
@@ -179,6 +176,7 @@ public class Main extends PApplet {
             quizMode = true;
         }
     }
+
 
     public void triggerBoss (){
         if(!quizMode){
