@@ -82,6 +82,7 @@ public class Player {
             }
             else {
                 interacting = 0;
+                textMode = false;
             }
 
         }
