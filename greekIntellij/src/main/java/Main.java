@@ -140,7 +140,7 @@ public class Main extends PApplet {
         //Creates lists of background images and tilemaps.
         ArrayList<String> listOfBackgrounds = getImageFiles("Images/Backgrounds");
         ArrayList<String> listOfTilemaps = getImageFiles("Images/Tilemaps");
-
+        ArrayList<String> listOfInteractions = getInteractionFiles("files/Interactions");
 
         //Makes sure that neither list is empty, before cycling through them
         assert listOfTilemaps != null;
@@ -148,9 +148,10 @@ public class Main extends PApplet {
 
         //Cycles through the lists, and creates new room objects for each pair of tilemaps and backgrounds
         for(int i = 0; i<listOfBackgrounds.size(); i++){
-            System.out.println(listOfBackgrounds.get(i));
+            //System.out.println(listOfBackgrounds.get(i));
             //System.out.println(listOfTilemaps.get(i));
-            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),"Files/Interactions/r0"+".txt",this, this));
+            //System.out.println(listOfInteractions.get(i));
+            allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),listOfInteractions.get(i),this, this));
         }
 
 
@@ -169,6 +170,21 @@ public class Main extends PApplet {
         return imagePaths;
 
     }
+
+
+    public ArrayList<String> getInteractionFiles(String url) {
+        File folder = new File(url);
+        String[] extensions = new String[]{"txt"};
+        List<File> files = (List<File>) FileUtils.listFiles(folder,extensions,true);
+        ArrayList<String> paths = new ArrayList<String>();
+        for(File file : files){
+            paths.add(file.getPath());
+        }
+        return paths;
+
+    }
+
+
 
     //Toggles the quizmode
     public void triggerQuiz (){
