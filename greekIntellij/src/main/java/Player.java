@@ -117,7 +117,6 @@ public class Player {
 
             }
 
-
             if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
                 y--;
             }
