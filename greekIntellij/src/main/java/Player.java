@@ -193,7 +193,7 @@ public class Player {
 
     public void drawLife(){
         //Tegner spillerens liv
-        if(!textMode) {
+
             core.imageMode(CORNER);
             core.tint(255, 190);
             if (health < 1) {
@@ -208,9 +208,11 @@ public class Player {
             if (health < 3) heart = heartDeath;
             core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
             core.tint(255);
-        }else{
+       
+        if(interacting > 0){
             t1.drawTextBox();
         }
+
     }
 
 
