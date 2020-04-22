@@ -110,6 +110,9 @@ public class Player {
 
                 main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
                 y = main.currentRoom.heightInTiles - 3;
+                if(main.currentRoom.id==2){
+                    main.triggerBoss();
+                }
 
             }
 
