@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 import static processing.core.PConstants.*;
 
@@ -82,24 +82,27 @@ public class Player {
 
     //Tries interaction
     public void interact(){
-        if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
+        if(x<25 && !(x<0) && y<18 && !(y<0)){
+            if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
+                ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
+                if(interacting<parts.size()){
+                    //textBox(parts.get(interacting));
+                    t1.activateText(parts.get(interacting));
+                    System.out.println(parts.get(interacting));
+                    interacting++;
+                } else {
+                    interacting = 0;
+                }
 
-            ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
-            if(interacting<parts.size()){
-                t1.activateText(parts.get(interacting));
-                System.out.println(parts.get(interacting));
-                interacting++;
-            } else {
-                interacting = 0;
             }
-
         }
+
 
     }
 
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
-        //System.out.println(x +","+y);
+        System.out.println(x +","+y);
 
             if (x > 24) {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
@@ -113,9 +116,12 @@ public class Player {
 
 
             if (y < 1) {
-
+                if(main.currentRoom.id==2){
+                    main.triggerBoss();
+                }
                 main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
                 y = main.currentRoom.heightInTiles - 3;
+
 
             }
 
