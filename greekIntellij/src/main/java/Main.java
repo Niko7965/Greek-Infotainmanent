@@ -149,9 +149,9 @@ public class Main extends PApplet {
 
         //Cycles through the lists, and creates new room objects for each pair of tilemaps and backgrounds
         for(int i = 0; i<listOfBackgrounds.size(); i++){
-            //System.out.println(listOfBackgrounds.get(i));
-            //System.out.println(listOfTilemaps.get(i));
-            //System.out.println(listOfInteractions.get(i));
+            System.out.println(listOfBackgrounds.get(i));
+            System.out.println(listOfTilemaps.get(i));
+            System.out.println(listOfInteractions.get(i));
             allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),listOfInteractions.get(i),this, this));
         }
 
