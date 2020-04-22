@@ -16,7 +16,6 @@ public class Main extends PApplet {
     //Quiz player, and logbook objects.
     Player p1;
     Quiz q1;
-    TextBox t1;
     Logbook l1;
 
     //The room that is currently active
@@ -48,7 +47,6 @@ public class Main extends PApplet {
     public void setup(){
         frameRate(20);
         l1 = new Logbook();
-        t1 = new TextBox(this,this);
 
         try {
             loadRooms();

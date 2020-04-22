@@ -51,12 +51,16 @@ public class Player {
     PImage heartDeath;
     PImage heart;
 
+    TextBox t1;
+
     //Contstructor for Player class
     public Player(float x,float y, PApplet core, Main main){
         this.x =  x;
         this.y =  y;
         this.core = core;
         this.main = main;
+        t1 = new TextBox(core,main);
+
 
         //Loads sprites
         spriteUp = core.loadImage("Images/Sprites/PlayerUp.png");
@@ -79,8 +83,7 @@ public class Player {
                 textBox(parts.get(interacting));
                 System.out.println(parts.get(interacting));
                 interacting++;
-            }
-            else {
+            } else {
                 interacting = 0;
             }
 
@@ -90,7 +93,7 @@ public class Player {
 
     public void textBox(String text) {
         if (!textMode) {
-            main.t1.activateText(text);
+            t1.activateText(text);
             textMode = true;
         }else{
             textMode = false;
@@ -100,7 +103,7 @@ public class Player {
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
         //System.out.println(x +","+y);
-        if(interacting == 0) {
+
             if (x > 24) {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
                 x = 0;
@@ -117,9 +120,7 @@ public class Player {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
                 y = main.currentRoom.heightInTiles - 3;
 
-
             }
-
 
             if (y >= 18) {
 
@@ -161,10 +162,6 @@ public class Player {
                 sprite = spriteRight;
                 direction = "r";
             }
-        }
-
-
-
 
     }
 
@@ -181,7 +178,7 @@ public class Player {
 
     //Draws the player based on coordinates
     public void drawPlayer(){
-        //FLytter spilleren
+        //Flytter spilleren
         if((!main.quizMode)&&(!textMode)) {
             movement();
         }
@@ -211,7 +208,7 @@ public class Player {
             core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
             core.tint(255);
         }else{
-            main.t1.drawTextBox();
+            t1.drawTextBox();
         }
     }
 
