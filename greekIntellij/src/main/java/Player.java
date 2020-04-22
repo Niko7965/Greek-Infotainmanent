@@ -33,7 +33,6 @@ public class Player {
     boolean moveRight=false;
     boolean moveLeft=false;
 
-    boolean textMode = false;
 
     int interacting = 0;
 
@@ -80,25 +79,16 @@ public class Player {
         if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
             ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
             if(interacting<parts.size()){
-                textBox(parts.get(interacting));
+                //textBox(parts.get(interacting));
+                t1.activateText(parts.get(interacting));
                 System.out.println(parts.get(interacting));
                 interacting++;
             } else {
                 interacting = 0;
-                textMode = false;
             }
 
         }
 
-    }
-
-    public void textBox(String text) {
-        if (!textMode) {
-            t1.activateText(text);
-            textMode = true;
-        }else{
-            textMode = false;
-        }
     }
 
     //Moves the player, and sets directional sprite based on keyboard input from main.
@@ -180,7 +170,7 @@ public class Player {
     //Draws the player based on coordinates
     public void drawPlayer(){
         //Flytter spilleren
-        if((!main.quizMode)&&(!textMode)) {
+        if((!main.quizMode)&&(interacting==0)) {
             movement();
         }
 
@@ -193,6 +183,10 @@ public class Player {
 
     public void drawLife(){
         //Tegner spillerens liv
+
+        if(interacting > 0){
+            t1.drawTextBox();
+        }
 
             core.imageMode(CORNER);
             core.tint(255, 190);
@@ -208,10 +202,6 @@ public class Player {
             if (health < 3) heart = heartDeath;
             core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
             core.tint(255);
-       
-        if(interacting > 0){
-            t1.drawTextBox();
-        }
 
     }
 
