@@ -50,6 +50,9 @@ public class Player {
     PImage heartDeath;
     PImage heart;
 
+    //Question Mark
+    PImage questionMark;
+
     TextBox t1;
 
     //Contstructor for Player class
@@ -71,15 +74,18 @@ public class Player {
         //Loads hearts
         heartLife = core.loadImage("Images/Sprites/heart1.png");
         heartDeath = core.loadImage("Images/Sprites/heart2.png");
+
+        questionMark = core.loadImage("Images/Sprites/questionMark.png");
+
     }
 
 
     //Tries interaction
     public void interact(){
         if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
+
             ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
             if(interacting<parts.size()){
-                //textBox(parts.get(interacting));
                 t1.activateText(parts.get(interacting));
                 System.out.println(parts.get(interacting));
                 interacting++;
@@ -178,10 +184,12 @@ public class Player {
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
+        core.image(questionMark,x*(core.width/25),(y+1)*(core.height/18)-core.height/20,x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/20));
+
 
     }
 
-    public void drawLife(){
+    public void drawHUD(){
         //Tegner spillerens liv
 
         if(interacting > 0){
@@ -195,13 +203,16 @@ public class Player {
             } else {
                 heart = heartLife;
             }
-            ;
+
             core.image(heart, core.width * 1 / 60, core.width / 50, core.width / 16, core.width / 16);
             if (health < 2) heart = heartDeath;
             core.image(heart, core.width * 5 / 60, core.width / 50, core.width / 16, core.width / 16);
             if (health < 3) heart = heartDeath;
             core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
             core.tint(255);
+
+
+
 
     }
 

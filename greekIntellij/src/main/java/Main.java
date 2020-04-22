@@ -73,7 +73,7 @@ public class Main extends PApplet {
            q1.drawQuiz();
        }
 
-            p1.drawLife();
+            p1.drawHUD();
 
     }
 
@@ -96,7 +96,9 @@ public class Main extends PApplet {
         }
 
         if(key == ' '){
+
             p1.interact();
+
         }
 
         if(key == 'l'||key =='L'){
