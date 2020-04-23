@@ -108,11 +108,13 @@ public class Quiz {
                         main.quizMode = false;
                         main.gameOver();
                     }else {
+
                         if (level < levels) {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {
                             core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
+                            main.gameOver();
                             main.bossMode = false;
                             main.quizMode = false;
                         }

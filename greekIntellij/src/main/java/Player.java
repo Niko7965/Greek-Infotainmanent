@@ -102,7 +102,7 @@ public class Player {
 
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
-        System.out.println(x +","+y);
+        //System.out.println(x +","+y);
 
             if (x > 24) {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
@@ -166,13 +166,16 @@ public class Player {
                 direction = "r";
             }
 
+            if (main.currentRoom.bossTerritory((int) x, (int) y)){
+                main.triggerBoss();
+
+            }
+
     }
 
     public void damage(){
         health--;
     }
-
-
 
     //Old function to load the sprite, might be removed later
     public void setSprite(String ImageURL){
@@ -190,8 +193,13 @@ public class Player {
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
-        core.image(questionMark,x*(core.width/25),(y+1)*(core.height/18)-core.height/20,x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/20));
 
+
+        if(x<25 && !(x<0) && y<18 && !(y<0)){
+            if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0) {
+                core.image(questionMark,x*(core.width/25),((y+1)*(core.height/18)-core.height/8),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/5));
+            }
+            }
 
     }
 
