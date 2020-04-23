@@ -59,6 +59,7 @@ public class Room {
 
     //Draws the room
     public void drawRoom(){
+
         core.imageMode(CORNERS);
         core.image(background, -tileSize, -tileSize,core.width+tileSize,core.height+tileSize);
 
@@ -75,22 +76,24 @@ public class Room {
         int white = -1;
         int blue = -16776961;
         int yellow = -256;
-
+        int pink = -65281;
 
         for (int i=0; i<widthInTiles*heightInTiles; i++){
             int c =tileMap.get(xFromId(i),yFromId(i));
 
             if(c == black) {
-                spaces.add(new Space(spaces.size(), true, 0,this));
+                spaces.add(new Space(spaces.size(), true,false, 0,this));
             }
 
             else if(c == yellow){
-                spaces.add(new Space(spaces.size(),true,1,this));
+                spaces.add(new Space(spaces.size(),true,false,1,this));
+            }
+            else if(c == pink){
+                spaces.add(new Space(spaces.size(),false,true,1,this));
             }
 
             else {
-                spaces.add(new Space(spaces.size(), false, 0,this));
-
+                spaces.add(new Space(spaces.size(), false,false, 0,this));
             }
         }
         //evalSpaces();
@@ -160,9 +163,16 @@ public class Room {
         return spaces.get(tile).getSolid();
     }
 
+    public boolean bossTerritory(int x, int y){
+        int tile = coordToId(x,y);
+        return spaces.get(tile).getBoss();
+    }
+
+
     public int spaceInteraction(int x, int y, String direction){
         if(direction.equals("u")){
             int tile = coordToId(x,y)-widthInTiles;
+
             return spaces.get(tile).getInteraction();
         }
         if(direction.equals("d")){

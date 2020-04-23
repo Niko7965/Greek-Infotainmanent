@@ -23,11 +23,13 @@ public class Quiz {
     int quizNumber=1;
     int resultsTimer;
     int level;
+    int levels = 3;
     boolean results;
     boolean correct;
     boolean success;
     boolean optionHover;
     PImage sphinx;
+
 
     public Quiz(PApplet core, Main main){
         this.core= core;
@@ -106,11 +108,13 @@ public class Quiz {
                         main.quizMode = false;
                         main.gameOver();
                     }else {
-                        if (level < 3) {
+
+                        if (level < levels) {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {
-                            core.link("https://www.youtube.com/watch?v=oyFQVZ2h0V8");
+                            core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
+                            main.gameOver();
                             main.bossMode = false;
                             main.quizMode = false;
                         }
@@ -125,7 +129,6 @@ public class Quiz {
 
         }
     }
-
 
 
     public void shuffleOptions(){

@@ -50,6 +50,9 @@ public class Player {
     PImage heartDeath;
     PImage heart;
 
+    //Question Mark
+    PImage questionMark;
+
     TextBox t1;
 
     //Contstructor for Player class
@@ -71,6 +74,9 @@ public class Player {
         //Loads hearts
         heartLife = core.loadImage("Images/Sprites/heart1.png");
         heartDeath = core.loadImage("Images/Sprites/heart2.png");
+
+        questionMark = core.loadImage("Images/Sprites/questionMark.png");
+
     }
 
 
@@ -160,13 +166,16 @@ public class Player {
                 direction = "r";
             }
 
+            if (main.currentRoom.bossTerritory((int) x, (int) y)){
+                main.triggerBoss();
+
+            }
+
     }
 
     public void damage(){
         health--;
     }
-
-
 
     //Old function to load the sprite, might be removed later
     public void setSprite(String ImageURL){
@@ -185,9 +194,16 @@ public class Player {
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
 
+
+        if(x<25 && !(x<0) && y<18 && !(y<0)){
+            if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0) {
+                core.image(questionMark,x*(core.width/25),((y+1)*(core.height/18)-core.height/8),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/5));
+            }
+            }
+
     }
 
-    public void drawLife(){
+    public void drawHUD(){
         //Tegner spillerens liv
 
         if(interacting > 0){
@@ -201,13 +217,16 @@ public class Player {
             } else {
                 heart = heartLife;
             }
-            ;
+
             core.image(heart, core.width * 1 / 60, core.width / 50, core.width / 16, core.width / 16);
             if (health < 2) heart = heartDeath;
             core.image(heart, core.width * 5 / 60, core.width / 50, core.width / 16, core.width / 16);
             if (health < 3) heart = heartDeath;
             core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
             core.tint(255);
+
+
+
 
     }
 

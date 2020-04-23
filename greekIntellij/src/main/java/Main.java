@@ -32,7 +32,6 @@ public class Main extends PApplet {
     //The main class, which instantiates the processing main.
     public static void main(String[] args){
         PApplet.main("Main");
-
     }
 
     //Processing settings. Currently sets the size of the screen
@@ -72,9 +71,7 @@ public class Main extends PApplet {
        if(quizMode) {
            q1.drawQuiz();
        }
-
-            p1.drawLife();
-
+            p1.drawHUD();
     }
 
 
@@ -96,7 +93,9 @@ public class Main extends PApplet {
         }
 
         if(key == ' '){
+
             p1.interact();
+
         }
 
         if(key == 'l'||key =='L'){
@@ -193,7 +192,7 @@ public class Main extends PApplet {
 
 
     public void triggerBoss (){
-        if(!quizMode){
+        if(!bossMode){
             q1.activateBoss();
             quizMode = true;
             bossMode = true;
@@ -224,5 +223,4 @@ public class Main extends PApplet {
         p1.y=10;
         currentRoom=allRooms.get(0);
     }
-
 }
