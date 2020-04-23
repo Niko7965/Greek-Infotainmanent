@@ -121,7 +121,6 @@ public class Main extends PApplet {
         }
         if(key =='b'||key =='B'){
 
-            triggerBoss();
         }
     }
 
@@ -191,13 +190,7 @@ public class Main extends PApplet {
     }
 
 
-    public void triggerBoss (){
-        if(!bossMode){
-            q1.activateBoss();
-            quizMode = true;
-            bossMode = true;
-        }
-    }
+
 
 
     public void mouseClicked() {

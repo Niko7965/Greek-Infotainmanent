@@ -87,25 +87,25 @@ public class Quiz {
                 core.fill(255, 20, 20, 255);
                 if(main.p1.health<1){
                     core.text("GAME OVER", core.width / 2, core.height / 2);
-                }else {
-                    core.text("FORKERT", core.width / 2, core.height / 2);
+                    }else {
+                        core.text("FORKERT", core.width / 2, core.height / 2);
+                    }
                 }
             }
-        }
 
-        //Option
-        optionHover=false;
-        shuffleOptions();
+            //Option
+            optionHover=false;
+            shuffleOptions();
 
-        //Check answer
-        if(results==true) {
-            if (resultsTimer > 0) {
-                resultsTimer--;
-            } else {
-                if(main.bossMode==true) {
-                    if(main.p1.health==0){
-                        main.bossMode = false;
-                        main.quizMode = false;
+            //Check answer
+            if(results==true) {
+                if (resultsTimer > 0) {
+                    resultsTimer--;
+                } else {
+                    if(main.bossMode==true) {
+                        if(main.p1.health==0){
+                            main.bossMode = false;
+                            main.quizMode = false;
                         main.gameOver();
                     }else {
 
