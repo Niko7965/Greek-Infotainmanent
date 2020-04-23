@@ -96,7 +96,7 @@ public class Player {
 
     //Moves the player, and sets directional sprite based on keyboard input from main.
     public void movement(){
-        System.out.println(x +","+y);
+        //System.out.println(x +","+y);
 
             if (x > 24) {
                 main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
