@@ -82,31 +82,53 @@ public class Player {
 
     //Tries interaction
     public void interact(){
-        if(x<25 && !(x<0) && y<18 && !(y<0)){
-            if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
-                ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
-                if(interacting<parts.size()){
-                    t1.activateText(parts.get(interacting));
-                    System.out.println(parts.get(interacting));
-                    interacting++;
-                } else {
+        if(!main.bossMode) {
+            if (x < 25 && !(x < 0) && y < 18 && !(y < 0)) {
+                if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0) {
+                    ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
+                    if (interacting < parts.size()) {
+                        t1.activateText(parts.get(interacting));
+                        System.out.println(parts.get(interacting));
+                        interacting++;
+                    } else {
+                        interacting = 0;
+                    }
+
+                }
+            }
+        }else{
+            if(!main.quizMode) {
+                interacting++;
+                t1.sphinxMonologue(interacting);
+                if (interacting == 3) {
                     interacting = 0;
+                    main.q1.activateBoss();
+                    main.quizMode = true;
+                }
+                if (interacting == 7) {
+                    interacting = 0;
+                    main.bossMode = false;
+
+                    main.gameOver();
+                }
+                if (interacting == 10) {
+                    interacting = 0;
+                    main.bossMode = false;
+                    core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
+                    main.gameOver();
                 }
 
             }
         }
-
 
     }
 
     public void triggerBoss (){
         if(!main.bossMode){
 
-            main.q1.activateBoss();
-            main.quizMode = true;
+            interacting = 1;
+            t1.sphinxMonologue(interacting);
             main.bossMode = true;
-
-
         }
     }
 
@@ -195,7 +217,7 @@ public class Player {
     //Draws the player based on coordinates
     public void drawPlayer(){
         //Flytter spilleren
-        if((!main.quizMode)&&(interacting==0)) {
+        if((!main.quizMode)&&(!main.bossMode)&&(interacting==0)) {
             movement();
         }
 

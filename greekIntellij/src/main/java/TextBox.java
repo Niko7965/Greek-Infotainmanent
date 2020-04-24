@@ -24,6 +24,21 @@ public class TextBox {
         this.text=text;
     }
 
+    public void sphinxMonologue(int step){
+        if(step==1){text="Kun de viseste må træde ind i Athæneum.";}
+        if(step==2){text="Hvis De vil komme forbi mig, skal du først vise dit værd.";}
+
+        if(step==4){text="De er tydeligvis ikke værdig.";}
+        if(step==5){text="Drag ud i verden og find ny viden.";}
+        if(step==6){text="Uddyb dine horisonter og kom først tilbage, når De tror, at De nu er parat.";}
+
+        if(step==8){text="Imponerende. Det lykkedes Dem at svare rigtigt på mine gåder.";}
+        if(step==9){text="De er i sandhed værdig til at træde ind i Athenæum.";}
+
+    }
+
+
+
     public void drawTextBox(){
         //Dark backdrop
         core.rectMode(CORNER);
