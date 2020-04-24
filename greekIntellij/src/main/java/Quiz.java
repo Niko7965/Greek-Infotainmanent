@@ -4,8 +4,11 @@ import processing.core.PImage;
 import processing.data.Table;
 import processing.event.KeyEvent;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -53,7 +56,7 @@ public class Quiz {
     public void drawQuiz(){
 
         //Sphinx billede
-        if(main.bossMode==true) {
+        if(main.bossMode) {
             core.image(sphinx, 0, 0, core.width, core.height);
         }
 
@@ -72,7 +75,7 @@ public class Quiz {
         core.rect(space,core.height-core.height/4,core.width-space*2,core.height-space,7);
 
         //Question
-        if(results==false) {
+        if(!results) {
             core.fill(255, 255, 255, 255);
             core.textSize(core.width / 25);
             core.textAlign(core.CENTER, core.CENTER);
@@ -80,15 +83,36 @@ public class Quiz {
         }else{
             core.textSize(core.width / 10);
             core.textAlign(core.CENTER, core.CENTER);
-            if(correct==true){
+            if(correct){
+                try {
+                    main.correct.play();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                }
                 core.fill(20, 255, 20, 255);
+
                 core.text("RIGTIGT", core.width / 2, core.height / 2);
+
             }else {
                 core.fill(255, 20, 20, 255);
                 if(main.p1.health<1){
                     core.text("GAME OVER", core.width / 2, core.height / 2);
                 }else {
+                    try {
+                        main.wrong.play();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (LineUnavailableException e) {
+                        e.printStackTrace();
+                    } catch (UnsupportedAudioFileException e) {
+                        e.printStackTrace();
+                    }
                     core.text("FORKERT", core.width / 2, core.height / 2);
+
                 }
             }
         }

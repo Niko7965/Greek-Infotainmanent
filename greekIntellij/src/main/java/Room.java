@@ -8,6 +8,7 @@ import processing.core.PImage;
 import processing.core.PApplet;
 
 
+
 import static processing.core.PConstants.CORNERS;
 
 
@@ -48,7 +49,7 @@ public class Room {
         fillSpaces();
         this.interactionUrl = interactionUrl;
         this.log = main.l1;
-        tileSize=2*background.width/27;
+        tileSize=main.width/27;
     }
 
     //Sets the background image as well as tilemap

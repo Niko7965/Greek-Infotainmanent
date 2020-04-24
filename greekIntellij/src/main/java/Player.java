@@ -3,8 +3,11 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.KeyEvent;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,13 +85,31 @@ public class Player {
 
     //Tries interaction
     public void interact(){
+        //Checks for outer bounds
         if(x<25 && !(x<0) && y<18 && !(y<0)){
+            //Checks for an interaction in the space next to the player, in the direction the player is facing
             if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
+
+                //List of dialogue parts for the interaction
                 ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
+
+                //Loops through the parts of the interaction dialogue
                 if(interacting<parts.size()){
                     //textBox(parts.get(interacting));
+                    if(interacting==0){
+                        try {
+                            main.interact.play();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (LineUnavailableException e) {
+                            e.printStackTrace();
+                        } catch (UnsupportedAudioFileException e) {
+                            e.printStackTrace();
+                        }
+                    }
                     t1.activateText(parts.get(interacting));
                     System.out.println(parts.get(interacting));
+
                     interacting++;
                 } else {
                     interacting = 0;
@@ -208,6 +229,7 @@ public class Player {
 
         if(interacting > 0){
             t1.drawTextBox();
+
         }
 
             core.imageMode(CORNER);

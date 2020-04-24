@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 public class Main extends PApplet {
 
@@ -17,6 +20,12 @@ public class Main extends PApplet {
     Player p1;
     Quiz q1;
     Logbook l1;
+
+    //SFX
+    SoundController correct;
+    SoundController wrong;
+    SoundController interact;
+
 
     //The room that is currently active
     Room currentRoom;
@@ -59,7 +68,19 @@ public class Main extends PApplet {
         q1 = new Quiz(this,this);
 
         //Sets the first room in the list as the current room
-        currentRoom=allRooms.get(0);
+        currentRoom=allRooms.get(7);
+        try {
+            correct = new SoundController("files/Sfx/Correct.wav");
+            wrong = new SoundController("files/Sfx/wrong2.wav");
+            interact = new SoundController("files/Sfx/Interaction.wav");
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -146,9 +167,9 @@ public class Main extends PApplet {
 
         //Cycles through the lists, and creates new room objects for each pair of tilemaps and backgrounds
         for(int i = 0; i<listOfBackgrounds.size(); i++){
-            System.out.println(listOfBackgrounds.get(i));
-            System.out.println(listOfTilemaps.get(i));
-            System.out.println(listOfInteractions.get(i));
+            //System.out.println(listOfBackgrounds.get(i));
+            //System.out.println(listOfTilemaps.get(i));
+            //System.out.println(listOfInteractions.get(i));
             allRooms.add(new Room(i, listOfBackgrounds.get(i),listOfTilemaps.get(i),listOfInteractions.get(i),this, this));
         }
 
