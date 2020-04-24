@@ -85,113 +85,140 @@ public class Player {
 
     //Tries interaction
     public void interact(){
-        //Checks for outer bounds
-        if(x<25 && !(x<0) && y<18 && !(y<0)){
-            //Checks for an interaction in the space next to the player, in the direction the player is facing
-            if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0){
+        if(!main.bossMode) {
+            if (x < 25 && !(x < 0) && y < 18 && !(y < 0)) {
+                if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0) {
+                    ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
 
-                //List of dialogue parts for the interaction
-                ArrayList<String> parts = main.currentRoom.interactionSplitter(main.currentRoom.getInteraction(main.currentRoom.spaceInteraction((int) x, (int) y, direction)));
-
-                //Loops through the parts of the interaction dialogue
-                if(interacting<parts.size()){
-                    //textBox(parts.get(interacting));
-                    if(interacting==0){
-                        try {
-                            main.interact.play();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (LineUnavailableException e) {
-                            e.printStackTrace();
-                        } catch (UnsupportedAudioFileException e) {
-                            e.printStackTrace();
-                        }
+                    if(interacting ==0){
+                      try {
+                          main.interact.play();
+                      } catch (IOException e) {
+                          e.printStackTrace();
+                      } catch (LineUnavailableException e) {
+                          e.printStackTrace();
+                      } catch (UnsupportedAudioFileException e) {
+                          e.printStackTrace();
+                      }
                     }
-                    t1.activateText(parts.get(interacting));
-                    System.out.println(parts.get(interacting));
 
-                    interacting++;
-                } else {
+                    if (interacting < parts.size()) {
+                        t1.activateText(parts.get(interacting));
+                        System.out.println(parts.get(interacting));
+                        interacting++;
+                    } else {
+                        interacting = 0;
+                    }
+
+                }
+            }
+        }else{
+            if(!main.quizMode) {
+                interacting++;
+                t1.sphinxMonologue(interacting);
+                if (interacting == 3) {
                     interacting = 0;
+                    main.q1.activateBoss();
+                    main.quizMode = true;
+                }
+                if (interacting == 7) {
+                    interacting = 0;
+                    main.bossMode = false;
+
+                    main.gameOver();
+                }
+                if (interacting == 10) {
+                    interacting = 0;
+                    main.bossMode = false;
+                    core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
+                    main.gameOver();
                 }
 
             }
         }
 
+    }
 
+    public void triggerBoss (){
+        if(!main.bossMode){
+
+            interacting = 1;
+            t1.sphinxMonologue(interacting);
+            main.bossMode = true;
+        }
     }
 
     //Moves the player, and sets directional sprite based on keyboard input from main.
-    public void movement(){
+    public void movement() {
         //System.out.println(x +","+y);
 
-            if (x > 24) {
-                main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
-                x = 0;
+        if (x > 24) {
+            main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
+            x = 0;
+        }
+
+        if (x < 0) {
+            main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
+            x = main.currentRoom.widthInTiles - 3;
+        }
+
+
+        if (y < 1) {
+
+            main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
+            y = main.currentRoom.heightInTiles - 3;
+
+
+        }
+
+        if (y >= 18) {
+
+            main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
+            y = 1;
+
+        }
+
+        if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
+            y--;
+        }
+
+        if (moveDown && !main.currentRoom.spaceDownSolid((int) x, (int) y)) {
+            y++;
+        }
+        if (moveLeft && !main.currentRoom.spaceLeftSolid((int) x, (int) y)) {
+            x--;
+        }
+        if (moveRight && !main.currentRoom.spaceRightSolid((int) x, (int) y)) {
+            x++;
+        }
+
+        if (moveUp) {
+            sprite = spriteUp;
+            direction = "u";
+        }
+
+        if (moveDown) {
+            sprite = spriteDown;
+            direction = "d";
+        }
+
+        if (moveLeft) {
+            sprite = spriteLeft;
+            direction = "l";
+        }
+
+        if (moveRight) {
+            sprite = spriteRight;
+            direction = "r";
+        }
+
+
+        if (main.currentRoom.id == 2){
+            if (main.currentRoom.bossTerritory((int) x, (int) y)) {
+                triggerBoss();
+
             }
-
-            if (x < 0) {
-                main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
-                x = main.currentRoom.widthInTiles - 3;
-            }
-
-
-            if (y < 1) {
-                if(main.currentRoom.id==2){
-                    main.triggerBoss();
-                }
-                main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
-                y = main.currentRoom.heightInTiles - 3;
-
-
-            }
-
-            if (y >= 18) {
-
-                main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
-                y = 1;
-
-            }
-
-            if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
-                y--;
-            }
-
-            if (moveDown && !main.currentRoom.spaceDownSolid((int) x, (int) y)) {
-                y++;
-            }
-            if (moveLeft && !main.currentRoom.spaceLeftSolid((int) x, (int) y)) {
-                x--;
-            }
-            if (moveRight && !main.currentRoom.spaceRightSolid((int) x, (int) y)) {
-                x++;
-            }
-
-            if (moveUp) {
-                sprite = spriteUp;
-                direction = "u";
-            }
-
-            if (moveDown) {
-                sprite = spriteDown;
-                direction = "d";
-            }
-
-            if (moveLeft) {
-                sprite = spriteLeft;
-                direction = "l";
-            }
-
-            if (moveRight) {
-                sprite = spriteRight;
-                direction = "r";
-            }
-
-            if (main.currentRoom.bossTerritory((int) x, (int) y)){
-                main.triggerBoss();
-
-            }
-
+    }
     }
 
     public void damage(){
@@ -206,7 +233,7 @@ public class Player {
     //Draws the player based on coordinates
     public void drawPlayer(){
         //Flytter spilleren
-        if((!main.quizMode)&&(interacting==0)) {
+        if((!main.quizMode)&&(!main.bossMode)&&(interacting==0)) {
             movement();
         }
 

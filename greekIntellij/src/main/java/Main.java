@@ -89,6 +89,7 @@ public class Main extends PApplet {
     public void  draw(){
        currentRoom.drawRoom();
        p1.drawPlayer();
+       if(bossMode){q1.drawSphinx();}
        if(quizMode) {
            q1.drawQuiz();
        }
@@ -141,8 +142,8 @@ public class Main extends PApplet {
             triggerQuiz();
         }
         if(key =='b'||key =='B'){
-
-            triggerBoss();
+            bossMode = true;
+            //p1.triggerBoss();
         }
     }
 
@@ -212,13 +213,7 @@ public class Main extends PApplet {
     }
 
 
-    public void triggerBoss (){
-        if(!bossMode){
-            q1.activateBoss();
-            quizMode = true;
-            bossMode = true;
-        }
-    }
+
 
 
     public void mouseClicked() {
