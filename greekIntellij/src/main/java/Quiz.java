@@ -49,27 +49,19 @@ public class Quiz {
     }
 
     public void activateBoss(){
-
         level=0;
         activateQuiz(level,core.random(0,4));
-
     }
 
-    public void drawSphinx(){
+    public void drawSphinx() {
 
         //Sphinx billede
-
-        core.image(sphinx, 0, 0, core.width, core.height);
-
-
-
+        if (main.bossMode) {
+            core.image(sphinx, 0, 0, core.width, core.height);
+        }
     }
 
-
-
-    public void drawQuiz(){
-
-
+     public void drawQuiz(){
 
         //Dark backdrop
         core.rectMode(CORNER);
@@ -90,9 +82,7 @@ public class Quiz {
             core.fill(255, 255, 255, 255);
             core.textSize(core.width / 25);
             core.textAlign(core.CENTER, core.CENTER);
-            //core.text(questionSplitter(questionString(quizNumber), 1), core.width / 4, core.height / 6, core.width - core.width / 4, core.height - core.height / 4);
-            core.text(questionSplitter(questionString(quizNumber), 1), 0, core.height- core.height / 5, core.width, core.height - core.height / 2);
-
+            core.text(questionSplitter(questionString(quizNumber), 1), core.width / 4, core.height / 6, core.width - core.width / 4, core.height - core.height / 4);
         }else{
             core.textSize(core.width / 10);
             core.textAlign(core.CENTER, core.CENTER);
@@ -128,35 +118,32 @@ public class Quiz {
 
                 }
             }
+        }
 
-            //Option
-            optionHover=false;
-            shuffleOptions();
+        //Option
+        optionHover=false;
+        shuffleOptions();
 
-            //Check answer
-            if(results==true) {
-                if (resultsTimer > 0) {
-                    resultsTimer--;
-                } else {
-                    if(main.bossMode==true) {
-                        if(main.p1.health==0){
-                            //main.bossMode = false;
-                            //main.gameOver();
-                            main.quizMode = false;
-                            main.p1.interacting = 4;
-                            main.p1.t1.sphinxMonologue(4);
+        //Check answer
+        if(results) {
+            if (resultsTimer > 0) {
+                resultsTimer--;
+            } else {
+                if(main.bossMode==true) {
+                    if(main.p1.health==0){
+                        main.bossMode = false;
+                        main.quizMode = false;
+                        main.gameOver();
                     }else {
 
                         if (level < levels) {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {
-
-                            //main.gameOver();
-                            //main.bossMode = false;
+                            core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
+                            main.gameOver();
+                            main.bossMode = false;
                             main.quizMode = false;
-                            main.p1.interacting = 8;
-                            main.p1.t1.sphinxMonologue(8);
                         }
                     }
                 }else{
