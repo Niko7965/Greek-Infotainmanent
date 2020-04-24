@@ -219,13 +219,29 @@ public class Main extends PApplet {
     public void mouseClicked() {
         if (q1.optionHover) {
             if (q1.correct) {
-
+                try {
+                    correct.play();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                }
                 q1.success=true;
                 q1.results=true;
 
             }
             if (!q1.correct) {
-
+                try {
+                    wrong.play();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (LineUnavailableException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedAudioFileException e) {
+                    e.printStackTrace();
+                }
                 q1.success=false;
                 q1.results=true;
                 p1.damage();

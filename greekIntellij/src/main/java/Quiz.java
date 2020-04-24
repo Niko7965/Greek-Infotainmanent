@@ -87,15 +87,7 @@ public class Quiz {
             core.textSize(core.width / 10);
             core.textAlign(core.CENTER, core.CENTER);
             if(correct){
-                try {
-                    main.correct.play();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (LineUnavailableException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedAudioFileException e) {
-                    e.printStackTrace();
-                }
+
                 core.fill(20, 255, 20, 255);
 
                 core.text("RIGTIGT", core.width / 2, core.height / 2);
@@ -105,15 +97,7 @@ public class Quiz {
                 if(main.p1.health<1){
                     core.text("GAME OVER", core.width / 2, core.height / 2);
                 }else {
-                    try {
-                        main.wrong.play();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (LineUnavailableException e) {
-                        e.printStackTrace();
-                    } catch (UnsupportedAudioFileException e) {
-                        e.printStackTrace();
-                    }
+
                     core.text("FORKERT", core.width / 2, core.height / 2);
 
                 }
