@@ -141,10 +141,6 @@ public class Main extends PApplet {
         if(key =='q'||key =='Q'){
             triggerQuiz();
         }
-        if(key =='b'||key =='B'){
-            bossMode = true;
-            //p1.triggerBoss();
-        }
     }
 
     public int getKeyCode(){
@@ -253,6 +249,6 @@ public class Main extends PApplet {
         p1.health=3;
         p1.x=10;
         p1.y=10;
-        currentRoom=allRooms.get(0);
+        currentRoom=allRooms.get(7);
     }
 }

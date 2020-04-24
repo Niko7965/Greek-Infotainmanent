@@ -40,11 +40,6 @@ public class TextBox {
 
 
     public void drawTextBox(){
-        //Dark backdrop
-        core.rectMode(CORNER);
-        core.noStroke();
-        core.fill(0,0,0,40);
-        core.rect(0,0,core.width,core.height);
 
         //TextBox
         core.rectMode(CORNERS);
