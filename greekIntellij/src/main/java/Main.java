@@ -96,13 +96,11 @@ public class Main extends PApplet {
             p1.drawHUD();
     }
 
-
     //PlayerMovement:
     //Player movement is handled in main, because processing's keylisteners are only accessible here.
     public void keyPressed(){
         if(key =='a' || key =='A'){
             p1.moveLeft=true;
-
         }
         if(key =='d' || key =='D'){
             p1.moveRight=true;

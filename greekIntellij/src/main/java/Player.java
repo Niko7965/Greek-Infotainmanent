@@ -125,6 +125,7 @@ public class Player {
                     interacting = 0;
                     main.bossMode = false;
 
+                    core.link("https://www.youtube.com/watch?v=eVTXPUF4Oz4");
                     main.gameOver();
                 }
                 if (interacting == 10) {
