@@ -54,7 +54,7 @@ public class Main extends PApplet {
     //Loads the rooms, and creates a player and quiz object.
     public void setup(){
         frameRate(20);
-        l1 = new Logbook();
+        l1 = new Logbook(this);
 
         try {
             loadRooms();
@@ -87,13 +87,20 @@ public class Main extends PApplet {
     //Draw is run at every frame.
     //Draws the player as well as the room, and the quiz, if the quiz is active.
     public void  draw(){
+
        currentRoom.drawRoom();
        p1.drawPlayer();
+
+
        if(bossMode){q1.drawSphinx();}
        if(quizMode) {
            q1.drawQuiz();
        }
             p1.drawHUD();
+
+        if(l1.logbookActive){
+            l1.drawTextBox();
+        }
     }
 
     //PlayerMovement:
@@ -119,7 +126,7 @@ public class Main extends PApplet {
         }
 
         if(key == 'l'||key =='L'){
-            l1.getHints();
+            l1.getHints(0);
         }
     }
 

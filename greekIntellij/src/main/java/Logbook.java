@@ -1,18 +1,33 @@
+import processing.core.PApplet;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+
+import static processing.core.PConstants.CORNERS;
 
 public class Logbook {
     ArrayList<String> allHints;
     ArrayList<Hint> playerHints = new ArrayList<Hint>();
+    ArrayList<String> hintLines = new ArrayList<String>();
     String hintUrl = "Files/Hints.txt";
+    Main main;
+    PApplet core;
+    boolean logbookActive = false;
+    String text ="";
+    int page = 0;
 
 
-    public Logbook(){
-        playerHints.add(new Hint("Dette er en logbog, hvor alle hints du finder, vil blive skrevet ned",true));
+    public Logbook(Main main){
+
         allHints = loadAllHints();
         setPlayerHints();
+        this.main = main;
+        core = main;
+        devEnableAll();
+        //devPrintPlayerHints();
     }
 
 
@@ -42,20 +57,72 @@ public class Logbook {
     }
 
 
-
-    public void enableHint(int roomNumber, int interactionNumber){
-        if(interactionNumber>0) {
-            playerHints.get((roomNumber * 5) + interactionNumber + 1).setActive(true);
+    public void devEnableAll(){
+        for(int i =0; i<24; i++){
+            for(int j = 0; j<4; j++){
+                System.out.println("enabling:"+i+","+j);
+                enableHint(i,j+1);
+            }
         }
     }
 
-    public void getHints(){
-        for (int i = 0; i <playerHints.size() ; i++) {
-            if(playerHints.get(i).active) {
-                System.out.println(playerHints.get(i).getContent());
+    public void hintsToLines(){
+        for (Hint playerHint : playerHints) {
+            if (playerHint.active) {
+                ArrayList<String> lines = lineSplitter(playerHint.getContent());
+                hintLines.addAll(lines);
             }
 
         }
+    }
+
+    ArrayList<String> lineSplitter(String sentence){
+        String[] lineList = sentence.split(";");
+        return new ArrayList<String>(Arrays.asList(lineList));
+    }
+
+    public void devPrintPlayerHints(){
+        for(int i = 0; i<playerHints.size(); i++){
+            System.out.println("#"+i+": "+playerHints.get(i).getContent());
+        }
+    }
+
+    public void enableHint(int roomNumber, int interactionNumber){
+        if(interactionNumber>0) {
+            int i = (roomNumber * 5) + (interactionNumber);
+            playerHints.get(i).setActive(true);
+            System.out.println(roomNumber + ";" + interactionNumber + " " + playerHints.get(i).getContent());
+        }
+    }
+
+    public void getHints(int n){
+        hintsToLines();
+        text = "Dette er en logbog hvor alle de informationer du finder vil blive skrevet ned \n";
+        for (int i = 0; i <hintLines.size();i++) {
+            System.out.println(hintLines.get(i+n));
+            text = text + hintLines.get((i+n));
+            text = text+ "\n";
+        }
+
+        logbookActive = !logbookActive;
+
+
+    }
+
+    public void drawTextBox(){
+        //TextBox
+        core.rectMode(CORNERS);
+        core.fill(0,0,255,120);
+        core.strokeWeight(4);
+        core.stroke(240,240,255,200);
+        int space=3;
+        core.rect(space,core.height-core.height,core.width-space,core.height-space,7);
+
+        //Text
+        core.textSize(core.width/42);
+        core.textAlign(core.LEFT,core.TOP);
+        core.fill(255,255,255,255);
+        core.text(text,space*3,core.height-core.height+space,core.width-space*3,core.height-space);
     }
 
 
