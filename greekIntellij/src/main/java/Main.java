@@ -137,7 +137,7 @@ public class Main extends PApplet {
             p1.moveDown=false;
         }
         if(key =='q'||key =='Q'){
-            triggerQuiz();
+            //triggerQuiz();
         }
     }
 
