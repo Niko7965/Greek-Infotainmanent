@@ -106,7 +106,23 @@ public class Main extends PApplet {
     //PlayerMovement:
     //Player movement is handled in main, because processing's keylisteners are only accessible here.
     public void keyPressed(){
-        if(key =='a' || key =='A'){
+        if (key == CODED) {
+            if (keyCode == UP) {
+                p1.moveUp =true;
+            }
+            if (keyCode == DOWN) {
+                p1.moveDown =true;
+            }
+            if (keyCode == RIGHT) {
+                p1.moveRight =true;
+            }
+            if (keyCode == LEFT) {
+                p1.moveLeft =true;
+            }
+
+        }
+        /*
+        if(key =='a' || key =='A'|| key == BACKSPACE){
             p1.moveLeft=true;
         }
         if(key =='d' || key =='D'){
@@ -118,9 +134,9 @@ public class Main extends PApplet {
         if(key =='s'||key =='S'){
             p1.moveDown=true;
         }
+        */
 
         if(key == ' '){
-
             p1.interact();
 
         }
@@ -131,7 +147,24 @@ public class Main extends PApplet {
     }
 
     public void keyReleased(){
-        if(key =='a' || key =='A'){
+        if (key == CODED) {
+            if (keyCode == UP) {
+                p1.moveUp =false;
+            }
+            if (keyCode == DOWN) {
+                p1.moveDown =false;
+            }
+            if (keyCode == RIGHT) {
+                p1.moveRight =false;
+            }
+            if (keyCode == LEFT) {
+                p1.moveLeft =false;
+            }
+
+        }
+
+        /*
+        if(key =='a' || key =='A'|| key == UP){
             p1.moveLeft=false;
         }
         if(key =='d' || key =='D'){
@@ -144,8 +177,9 @@ public class Main extends PApplet {
             p1.moveDown=false;
         }
         if(key =='q'||key =='Q'){
-            triggerQuiz();
+            //triggerQuiz();
         }
+         */
     }
 
     public int getKeyCode(){
