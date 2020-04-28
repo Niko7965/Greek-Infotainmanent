@@ -26,7 +26,7 @@ public class Logbook {
         setPlayerHints();
         this.main = main;
         core = main;
-        devEnableAll();
+        //devEnableAll();
         //devPrintPlayerHints();
     }
 
@@ -58,15 +58,16 @@ public class Logbook {
 
 
     public void devEnableAll(){
-        for(int i =0; i<24; i++){
+        for(int i =0; i<25; i++){
             for(int j = 0; j<4; j++){
-                System.out.println("enabling:"+i+","+j);
+                //System.out.println("enabling:"+i+","+j);
                 enableHint(i,j+1);
             }
         }
     }
 
     public void hintsToLines(){
+        hintLines = new ArrayList<String>();
         for (Hint playerHint : playerHints) {
             if (playerHint.active) {
                 ArrayList<String> lines = lineSplitter(playerHint.getContent());
@@ -91,20 +92,24 @@ public class Logbook {
         if(interactionNumber>0) {
             int i = (roomNumber * 5) + (interactionNumber);
             playerHints.get(i).setActive(true);
-            System.out.println(roomNumber + ";" + interactionNumber + " " + playerHints.get(i).getContent());
+            //System.out.println(roomNumber + ";" + interactionNumber + " " + playerHints.get(i).getContent());
         }
     }
 
     public void getHints(int n){
         hintsToLines();
         text = "Dette er en logbog hvor alle de informationer du finder vil blive skrevet ned \n";
-        for (int i = 0; i <hintLines.size();i++) {
-            System.out.println(hintLines.get(i+n));
-            text = text + hintLines.get((i+n));
+        for (int i = 0; i <18;i++) {
+            if(i<hintLines.size()){
+                //System.out.println(hintLines.get(i+n));
+                text = text + hintLines.get((i+n));
+            }
+
             text = text+ "\n";
         }
+        text = text+ "Du kan bruge piletasterne til at navigere i logbogen";
 
-        logbookActive = !logbookActive;
+
 
 
     }

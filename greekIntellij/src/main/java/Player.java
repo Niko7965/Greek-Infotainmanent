@@ -152,86 +152,88 @@ public class Player {
     //Moves the player, and sets directional sprite based on keyboard input from main.
     //If the player hits the sides of the map, they get moved to another map
     public void movement() {
-        //System.out.println(x +","+y);
+        if(!main.l1.logbookActive) {
+            //System.out.println(x +","+y);
 
-        //Right Boundary
-        if (x > 24) {
-            main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
-            x = 0;
-        }
-
-        //Left Boundary
-        if (x < 0) {
-            main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
-            x = main.currentRoom.widthInTiles - 3;
-        }
-
-        //Top Boundary
-        if (y < 1) {
-            main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
-            y = main.currentRoom.heightInTiles - 3;
-        }
-
-        //Bottom Boundary
-        if (y >= 18) {
-            main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
-            y = 1;
-        }
-
-
-        //The next four functions moves you in a given direction, if the space isn't solid
-        //Up
-        if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
-            y--;
-        }
-
-        //Down
-        if (moveDown && !main.currentRoom.spaceDownSolid((int) x, (int) y)) {
-            y++;
-        }
-
-        //Left
-        if (moveLeft && !main.currentRoom.spaceLeftSolid((int) x, (int) y)) {
-            x--;
-        }
-
-        //Right
-        if (moveRight && !main.currentRoom.spaceRightSolid((int) x, (int) y)) {
-            x++;
-        }
-
-
-        //The next four functions set your sprite to face the direction the player is pressing.
-        //Up
-        if (moveUp) {
-            sprite = spriteUp;
-            direction = "u";
-        }
-
-        //Down
-        if (moveDown) {
-            sprite = spriteDown;
-            direction = "d";
-        }
-
-        //Left
-        if (moveLeft) {
-            sprite = spriteLeft;
-            direction = "l";
-        }
-
-        //Right
-        if (moveRight) {
-            sprite = spriteRight;
-            direction = "r";
-        }
-
-        //Starts the bossfight if the player is standing in the right place.
-        if (main.currentRoom.id == 2){
-            if (main.currentRoom.bossTerritory((int) x, (int) y)) {
-                triggerBoss();
+            //Right Boundary
+            if (x > 24) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
+                x = 0;
             }
-         }
+
+            //Left Boundary
+            if (x < 0) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
+                x = main.currentRoom.widthInTiles - 3;
+            }
+
+            //Top Boundary
+            if (y < 1) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
+                y = main.currentRoom.heightInTiles - 3;
+            }
+
+            //Bottom Boundary
+            if (y >= 18) {
+                main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
+                y = 1;
+            }
+
+
+            //The next four functions moves you in a given direction, if the space isn't solid
+            //Up
+            if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
+                y--;
+            }
+
+            //Down
+            if (moveDown && !main.currentRoom.spaceDownSolid((int) x, (int) y)) {
+                y++;
+            }
+
+            //Left
+            if (moveLeft && !main.currentRoom.spaceLeftSolid((int) x, (int) y)) {
+                x--;
+            }
+
+            //Right
+            if (moveRight && !main.currentRoom.spaceRightSolid((int) x, (int) y)) {
+                x++;
+            }
+
+
+            //The next four functions set your sprite to face the direction the player is pressing.
+            //Up
+            if (moveUp) {
+                sprite = spriteUp;
+                direction = "u";
+            }
+
+            //Down
+            if (moveDown) {
+                sprite = spriteDown;
+                direction = "d";
+            }
+
+            //Left
+            if (moveLeft) {
+                sprite = spriteLeft;
+                direction = "l";
+            }
+
+            //Right
+            if (moveRight) {
+                sprite = spriteRight;
+                direction = "r";
+            }
+
+            //Starts the bossfight if the player is standing in the right place.
+            if (main.currentRoom.id == 2) {
+                if (main.currentRoom.bossTerritory((int) x, (int) y)) {
+                    triggerBoss();
+                }
+            }
+        }
     }
 
     //A function that removes 1hp from the players healthbar

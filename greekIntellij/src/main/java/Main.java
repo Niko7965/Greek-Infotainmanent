@@ -142,7 +142,9 @@ public class Main extends PApplet {
         }
 
         if(key == 'l'||key =='L'){
-            l1.getHints(0);
+            l1.logbookActive=!l1.logbookActive;
+            l1.page =0;
+            l1.getHints(l1.page);
         }
     }
 
@@ -155,9 +157,17 @@ public class Main extends PApplet {
                 p1.moveDown =false;
             }
             if (keyCode == RIGHT) {
+                if(l1.logbookActive&&l1.page<l1.hintLines.size()-18){
+                    l1.page++;
+                    l1.getHints(l1.page);
+                }
                 p1.moveRight =false;
             }
             if (keyCode == LEFT) {
+                if(l1.logbookActive&&l1.page>0){
+                    l1.page--;
+                    l1.getHints(l1.page);
+                }
                 p1.moveLeft =false;
             }
 
