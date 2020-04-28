@@ -96,13 +96,11 @@ public class Main extends PApplet {
             p1.drawHUD();
     }
 
-
     //PlayerMovement:
     //Player movement is handled in main, because processing's keylisteners are only accessible here.
     public void keyPressed(){
         if(key =='a' || key =='A'){
             p1.moveLeft=true;
-
         }
         if(key =='d' || key =='D'){
             p1.moveRight=true;
@@ -140,10 +138,6 @@ public class Main extends PApplet {
         }
         if(key =='q'||key =='Q'){
             triggerQuiz();
-        }
-        if(key =='b'||key =='B'){
-            bossMode = true;
-            //p1.triggerBoss();
         }
     }
 
@@ -253,6 +247,6 @@ public class Main extends PApplet {
         p1.health=3;
         p1.x=10;
         p1.y=10;
-        currentRoom=allRooms.get(0);
+        currentRoom=allRooms.get(7);
     }
 }

@@ -65,9 +65,12 @@ public class Quiz {
 
         //Dark backdrop
         core.rectMode(CORNER);
-        core.noStroke();
-        core.fill(0,0,0,40);
-        core.rect(0,0,core.width,core.height);
+
+             core.rectMode(CORNER);
+             core.noStroke();
+             core.fill(0, 0, 0, 40);
+             core.rect(0, 0, core.width, core.height);
+
 
         //QuizBox
         core.rectMode(CORNERS);
@@ -82,7 +85,7 @@ public class Quiz {
             core.fill(255, 255, 255, 255);
             core.textSize(core.width / 25);
             core.textAlign(core.CENTER, core.CENTER);
-            core.text(questionSplitter(questionString(quizNumber), 1), core.width / 4, core.height / 6, core.width - core.width / 4, core.height - core.height / 4);
+            core.text(questionSplitter(questionString(quizNumber), 1), 0, core.height -core.height/5, core.width, core.height / 2);
         }else{
             core.textSize(core.width / 10);
             core.textAlign(core.CENTER, core.CENTER);
@@ -115,18 +118,22 @@ public class Quiz {
             } else {
                 if(main.bossMode==true) {
                     if(main.p1.health==0){
-                        main.bossMode = false;
+                        //main.bossMode = false;
                         main.quizMode = false;
-                        main.gameOver();
+                        //main.gameOver();
+                        main.p1.interacting=4;
+                        main.p1.t1.sphinxMonologue(4);
                     }else {
 
                         if (level < levels) {
                             level++;
                             activateQuiz(level, core.random(0, 4));
                         } else {
-                            core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
-                            main.gameOver();
-                            main.bossMode = false;
+                            //core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
+                            //main.gameOver();
+                            //main.bossMode = false;
+                            main.p1.interacting=8;
+                            main.p1.t1.sphinxMonologue(8);
                             main.quizMode = false;
                         }
                     }
