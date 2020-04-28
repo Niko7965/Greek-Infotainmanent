@@ -149,78 +149,91 @@ public class Player {
     }
 
     //Moves the player, and sets directional sprite based on keyboard input from main.
+    //If the player hits the sides of the map, they get moved to another map
     public void movement() {
         //System.out.println(x +","+y);
 
+        //Right Boundary
         if (x > 24) {
             main.currentRoom = main.allRooms.get(main.currentRoom.id + 1);
             x = 0;
         }
 
+        //Left Boundary
         if (x < 0) {
             main.currentRoom = main.allRooms.get(main.currentRoom.id - 1);
             x = main.currentRoom.widthInTiles - 3;
         }
 
-
+        //Top Boundary
         if (y < 1) {
-
             main.currentRoom = main.allRooms.get(main.currentRoom.id - 5);
             y = main.currentRoom.heightInTiles - 3;
-
-
         }
 
+        //Bottom Boundary
         if (y >= 18) {
-
             main.currentRoom = main.allRooms.get(main.currentRoom.id + 5);
             y = 1;
-
         }
 
+
+        //The next four functions moves you in a given direction, if the space isn't solid
+        //Up
         if (moveUp && !main.currentRoom.spaceUpSolid((int) x, (int) y)) {
             y--;
         }
 
+        //Down
         if (moveDown && !main.currentRoom.spaceDownSolid((int) x, (int) y)) {
             y++;
         }
+
+        //Left
         if (moveLeft && !main.currentRoom.spaceLeftSolid((int) x, (int) y)) {
             x--;
         }
+
+        //Right
         if (moveRight && !main.currentRoom.spaceRightSolid((int) x, (int) y)) {
             x++;
         }
 
+
+        //The next four functions set your sprite to face the direction the player is pressing.
+        //Up
         if (moveUp) {
             sprite = spriteUp;
             direction = "u";
         }
 
+        //Down
         if (moveDown) {
             sprite = spriteDown;
             direction = "d";
         }
 
+        //Left
         if (moveLeft) {
             sprite = spriteLeft;
             direction = "l";
         }
 
+        //Right
         if (moveRight) {
             sprite = spriteRight;
             direction = "r";
         }
 
-
+        //Starts the bossfight if the player is standing in the right place.
         if (main.currentRoom.id == 2){
             if (main.currentRoom.bossTerritory((int) x, (int) y)) {
                 triggerBoss();
-
             }
-    }
+         }
     }
 
+    //A function that removes 1hp from the players healthbar
     public void damage(){
         health--;
     }
@@ -237,12 +250,12 @@ public class Player {
             movement();
         }
 
-        //Tegner spilleren
+        //Draws the plauer
         core.imageMode(CORNERS);
         core.image(sprite,x*(core.width/25),(y+1)*(core.height/18),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/9));
         //System.out.println(x+" "+y);
 
-
+        //Draws an exclamation point over the players head, if they're in a place where they can interact
         if(x<25 && !(x<0) && y<18 && !(y<0)){
             if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0) {
                 core.image(questionMark,x*(core.width/25),((y+1)*(core.height/18)-core.height/8),x*(core.width/25)+(core.width/25),((y+1)*(core.height/18))-(core.height/5));
@@ -251,14 +264,12 @@ public class Player {
 
     }
 
+    //Draws the HUD, currently used for HP-bar
     public void drawHUD(){
-        //Tegner spillerens liv
 
         if(interacting > 0){
             t1.drawTextBox();
-
         }
-
             core.imageMode(CORNER);
             core.tint(255, 190);
             if (health < 1) {
@@ -273,10 +284,6 @@ public class Player {
             if (health < 3) heart = heartDeath;
             core.image(heart, core.width * 9 / 60, core.width / 50, core.width / 16, core.width / 16);
             core.tint(255);
-
-
-
-
     }
 
 
