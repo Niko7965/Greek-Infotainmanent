@@ -30,6 +30,8 @@ public class Space {
         return boss;
     }
 
+
+
     public int getInteraction(){
         r.log.enableHint(r.id,interaction);
         return interaction;}

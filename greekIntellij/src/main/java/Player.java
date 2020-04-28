@@ -85,6 +85,7 @@ public class Player {
 
     //Tries interaction
     public void interact(){
+        main.l1.enableHint(main.currentRoom.id,main.currentRoom.spaceInteraction((int) x, (int) y, direction));
         if(!main.bossMode) {
             if (x < 25 && !(x < 0) && y < 18 && !(y < 0)) {
                 if (main.currentRoom.spaceInteraction((int) x, (int) y, direction) != 0) {
