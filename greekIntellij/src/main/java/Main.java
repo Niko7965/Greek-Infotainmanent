@@ -9,6 +9,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
+import java.util.concurrent.TimeUnit;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -37,6 +38,7 @@ public class Main extends PApplet {
     public Boolean quizMode = false;
     public Boolean bossMode = false;
 
+    public long startTime;
 
     //The main class, which instantiates the processing main.
     public static void main(String[] args){
@@ -81,6 +83,8 @@ public class Main extends PApplet {
             e.printStackTrace();
         }
 
+        startTime = System.nanoTime();
+
 
     }
 
@@ -102,6 +106,7 @@ public class Main extends PApplet {
             l1.drawTextBox();
         }
     }
+
 
     //PlayerMovement:
     //Player movement is handled in main, because processing's keylisteners are only accessible here.
@@ -145,6 +150,7 @@ public class Main extends PApplet {
             l1.logbookActive=!l1.logbookActive;
             l1.page =0;
             l1.getHints(l1.page);
+            System.out.println(getTimeMin());
         }
     }
 
@@ -294,10 +300,19 @@ public class Main extends PApplet {
         }
     }
 
+
     public void gameOver(){
         p1.health=3;
         p1.x=10;
         p1.y=10;
         currentRoom=allRooms.get(7);
     }
+
+    public long getTimeMin(){
+        long endTime = System.nanoTime();
+        return (((endTime - startTime)/(60000))/1000000);
+    }
+
 }
+
+
