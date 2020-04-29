@@ -30,12 +30,14 @@ public class Player {
     //Player HP
     int health=3;
 
+    //Player attempts
+    int attempts = 0;
+
     //Boolean for movement directions
     boolean moveUp=false;
     boolean moveDown=false;
     boolean moveRight=false;
     boolean moveLeft=false;
-
 
     int interacting = 0;
 
@@ -119,6 +121,7 @@ public class Player {
                 t1.sphinxMonologue(interacting);
                 if (interacting == 3) {
                     interacting = 0;
+                    attempts++;
                     main.q1.activateBoss();
                     main.quizMode = true;
                 }
@@ -129,7 +132,7 @@ public class Player {
                     core.link("https://www.youtube.com/watch?v=eVTXPUF4Oz4");
                     main.gameOver();
                 }
-                if (interacting == 10) {
+                if (interacting == 11) {
                     interacting = 0;
                     main.bossMode = false;
                     core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
