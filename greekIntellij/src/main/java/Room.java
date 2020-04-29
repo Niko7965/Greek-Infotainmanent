@@ -78,9 +78,17 @@ public class Room {
         int blue = -16776961;
         int yellow = -256;
         int pink = -65281;
+        int cyan = -16711681;
+        int purple = -8716033;
+
 
         for (int i=0; i<widthInTiles*heightInTiles; i++){
+
             int c =tileMap.get(xFromId(i),yFromId(i));
+            if(id == 2){
+               System.out.println(c);
+            }
+
 
             if(c == black) {
                 spaces.add(new Space(spaces.size(), true,false, 0,this));
@@ -90,8 +98,21 @@ public class Room {
                 spaces.add(new Space(spaces.size(),true,false,1,this));
             }
             else if(c == pink){
-                spaces.add(new Space(spaces.size(),false,true,1,this));
+                spaces.add(new Space(spaces.size(),true,false,2,this));
             }
+            else if(c == blue){
+                spaces.add(new Space(spaces.size(),true,false,3,this));
+            }
+            else if(c == cyan){
+                spaces.add(new Space(spaces.size(),true,false,4,this));
+            }
+            else if(c == purple){
+                spaces.add(new Space(spaces.size(),false,true,0,this));
+            }
+
+
+
+
 
             else {
                 spaces.add(new Space(spaces.size(), false,false, 0,this));

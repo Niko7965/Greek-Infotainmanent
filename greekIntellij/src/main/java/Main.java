@@ -91,7 +91,6 @@ public class Main extends PApplet {
     //Draw is run at every frame.
     //Draws the player as well as the room, and the quiz, if the quiz is active.
     public void  draw(){
-
        currentRoom.drawRoom();
        p1.drawPlayer();
 
