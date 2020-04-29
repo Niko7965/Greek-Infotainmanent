@@ -34,7 +34,7 @@ public class TextBox {
 
         if(step==8){text="Imponerende. Det lykkedes Dem at svare rigtigt på mine gåder.";}
         if(step==9){
-            text="Du besejrede mig på dit "+main.p1.attempts+". forsøg og det tog dig "+main.getTimeMin()+" minutter at gøre det.";
+            text="Du besejrede mig på dit "+main.p1.attempts+". forsøg, og det tog dig "+main.getTimeMin()+" minutter at gøre det.";
             core.println("Spillet blev fuldført.\n Tid: "+main.getTimeMin()+"\n Forsøg: "+main.p1.attempts); }
         if(step==10){text="De er i sandhed værdig til at træde ind i Athenæum.";}
     }
