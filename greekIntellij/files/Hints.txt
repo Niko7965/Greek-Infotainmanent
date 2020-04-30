@@ -24,7 +24,7 @@ d
 4h3
 4h4
 #5
-5h1
+Prometheus stjal ild fra guderne og gav det til menneskene.;Prometheus blev straffet ved at blive lænket til en sten, hvor en ørn hver dag vil spise hans lever, som vil vokse tilbage hver nat.
 5h2
 5h3
 5h4
@@ -114,7 +114,7 @@ x
 x
 x
 #23
-Apollo er gud af lys musik og bueskydning; Apollos forældre er Zeus og Leto; Apollo fik sin lyre af Hermes, som undskyldning for at Hermes, som nyfødt barn, havde stjålet noget af Apollos kvæg
+Apollo er gud af lys musik og bueskydning;Apollos forældre er Zeus og Leto;Apollo fik sin lyre af Hermes, som undskyldning for at Hermes, som nyfødt barn, havde stjålet noget af Apollos kvæg
 x
 x
 x
@@ -122,4 +122,4 @@ x
 x
 x
 x
-last
+Pythia er Apollos orakel som befinder sig på øen Delos;Pythia har spådomsevner.

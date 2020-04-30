@@ -98,16 +98,26 @@ public class Logbook {
 
     public void getHints(int n){
         hintsToLines();
-        text = "Dette er en logbog hvor alle de informationer du finder vil blive skrevet ned \n";
+        text = "Dette er en logbog hvor alle de informationer du finder vil blive skrevet ned";
+        text = text+ "Du kan bruge piletasterne til at navigere i logbogen \n \n";
         for (int i = 0; i <18;i++) {
             if(i<hintLines.size()){
                 //System.out.println(hintLines.get(i+n));
-                text = text + hintLines.get((i+n));
+                if (!hintLines.get(i+n).equals("x")) {
+                    text = text + hintLines.get((i+n));
+                    text = text+ "\n";
+                    //System.out.println(hintLines.get(i+n)+"x");
+
+                }
+
+
+
+
             }
 
-            text = text+ "\n";
+
         }
-        text = text+ "Du kan bruge piletasterne til at navigere i logbogen";
+
 
 
 

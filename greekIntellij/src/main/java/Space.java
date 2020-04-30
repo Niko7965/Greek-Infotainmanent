@@ -33,7 +33,7 @@ public class Space {
 
 
     public int getInteraction(){
-        r.log.enableHint(r.id,interaction);
+        //r.log.enableHint(r.id,interaction);
         return interaction;}
 
 
