@@ -85,7 +85,7 @@ public class Room {
         for (int i=0; i<widthInTiles*heightInTiles; i++){
 
             int c =tileMap.get(xFromId(i),yFromId(i));
-            
+
 
             if(c == black) {
                 spaces.add(new Space(spaces.size(), true,false, 0,this));
