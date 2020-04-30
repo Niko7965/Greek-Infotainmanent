@@ -1,4 +1,5 @@
 
+“Jeg er en af Pythagoras’ elever.”;“Det var ham der fandt forholdet mellem til siderne i en retvinklet trekant…”;“Du ved, en trekant med en lodret side, en vandret side og en skrå side?”;“Vi fik godt nok at vide at vi ikke måtte tale om det.”;“Pythagoras mente at viden var ubrugelig med mindre man forstod hele matematikken bag den.”;“Man skulle ikke bare acceptere viden. Viden skulle ikke bredes til udenadslære. “;“Men du virker klog”;“Lad mig fortælle dig Pythagoras læresætning”;“…”;“.. a^2 + b^2 = c^2…”;“…”;“Det betyder at hvis den lodrette side ganges med sig selv…”;“...og den vandrette side ganges med sig selv... “;“.. og de to lægges sammen - “;“vil man få den samme længde som den skrå side ganget med sig selv!”;“Smart, ikke?”;“Husk det nu: a^2 + b^2 = c^2!“
 Beautiful flowers
 Suspicious lake
-Fml
+“Denne høj vi står foran er Akropolis”;“Akropolis betyder i virkeligheden ‘høj by’, og er ordet bliver brugt om gamle byer eller fæstninger på klipper”;“Der er faktisk rigtigt mange akropoliser her i Grækenland, med specifikt denne akropolis, her i Athen, bliver bare kaldt Akropolis”

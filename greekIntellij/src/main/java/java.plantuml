@@ -2,7 +2,6 @@
 
 title __JAVA's Class Diagram__\n
 
-  namespace  {
     class Hint {
         ~ active : boolean
         ~ content : String
@@ -10,33 +9,39 @@ title __JAVA's Class Diagram__\n
         + getContent()
         + setActive()
     }
-  }
-  
 
-  namespace  {
     class Logbook {
         ~ allHints : ArrayList<String>
+        ~ core : PApplet
+        ~ hintLines : ArrayList<String>
         ~ hintUrl : String
+        ~ logbookActive : boolean
+        ~ page : int
         ~ playerHints : ArrayList<Hint>
+        ~ text : String
         + Logbook()
+        + devEnableAll()
+        + devPrintPlayerHints()
+        + drawTextBox()
         + enableHint()
         + getHints()
+        + hintsToLines()
         + loadAllHints()
         + setPlayerHints()
+        ~ lineSplitter()
     }
-  }
-  
 
-  namespace  {
     class Main {
         + bossMode : Boolean
         + quizMode : Boolean
+        + startTime : long
         ~ allRooms : ArrayList<Room>
         + draw()
         + gameOver()
         + getImageFiles()
         + getInteractionFiles()
         + getKeyCode()
+        + getTimeMin()
         + keyPressed()
         + keyReleased()
         + loadRooms()
@@ -44,14 +49,11 @@ title __JAVA's Class Diagram__\n
         + mouseClicked()
         + settings()
         + setup()
-        + triggerBoss()
         + triggerQuiz()
     }
-  }
-  
 
-  namespace  {
     class Player {
+        ~ attempts : int
         ~ core : PApplet
         ~ direction : String
         ~ health : int
@@ -63,32 +65,30 @@ title __JAVA's Class Diagram__\n
         ~ moveLeft : boolean
         ~ moveRight : boolean
         ~ moveUp : boolean
+        ~ questionMark : PImage
         ~ sprite : PImage
         ~ spriteDown : PImage
         ~ spriteLeft : PImage
         ~ spriteRight : PImage
         ~ spriteUp : PImage
-        ~ textMode : boolean
         ~ x : float
         ~ y : float
         + Player()
         + damage()
-        + drawLife()
+        + drawHUD()
         + drawPlayer()
         + interact()
         + movement()
         + setSprite()
-        + textBox()
+        + triggerBoss()
     }
-  }
-  
 
-  namespace  {
     class Quiz {
         ~ core : PApplet
         ~ correct : boolean
         ~ correctPlacement : float
         ~ level : int
+        ~ levels : int
         ~ maxX : float
         ~ maxY : float
         ~ minX : float
@@ -104,15 +104,13 @@ title __JAVA's Class Diagram__\n
         + activateBoss()
         + activateQuiz()
         + drawQuiz()
+        + drawSphinx()
         + questionString()
         + quizOption()
         + shuffleOptions()
         ~ questionSplitter()
     }
-  }
-  
 
-  namespace  {
     class Room {
         ~ background : PImage
         ~ core : PApplet
@@ -124,6 +122,7 @@ title __JAVA's Class Diagram__\n
         ~ tileSize : int
         ~ widthInTiles : int
         + Room()
+        + bossTerritory()
         + coordToId()
         + drawRoom()
         + evalSpaces()
@@ -140,23 +139,30 @@ title __JAVA's Class Diagram__\n
         + yFromId()
         ~ interactionSplitter()
     }
-  }
-  
 
-  namespace  {
+    class SoundController {
+        ~ audioInputStream : AudioInputStream
+        ~ clip : Clip
+        ~ currentFrame : Long
+        ~ filePath : String
+        ~ status : String
+        + SoundController()
+        + play()
+        + resetAudioStream()
+    }
+
     class Space {
+        ~ boss : boolean
         ~ core : PApplet
         ~ id : int
         ~ interaction : int
         ~ solid : boolean
         + Space()
+        + getBoss()
         + getInteraction()
         + getSolid()
     }
-  }
-  
 
-  namespace  {
     class TextBox {
         ~ core : PApplet
         ~ space : int
@@ -164,17 +170,21 @@ title __JAVA's Class Diagram__\n
         + TextBox()
         + activateText()
         + drawTextBox()
+        + sphinxMonologue()
     }
-  }
   
 
+  Logbook o-- Main : main
   Main -up-|> processing.core.PApplet
+  Main o-- SoundController : correct
   Main o-- Room : currentRoom
+  Main o-- SoundController : interact
   Main o-- Logbook : l1
   Main o-- Player : p1
   Main o-- Quiz : q1
-  Main o-- TextBox : t1
+  Main o-- SoundController : wrong
   Player o-- Main : main
+  Player o-- TextBox : t1
   Quiz o-- Main : main
   Room o-- Logbook : log
   Space o-- Room : r

@@ -1,6 +1,6 @@
 @startuml
 
-title __GREEKINTELLIJ's Class Diagram__\n
+title __GREEKINFOTAINMENT's Class Diagram__\n
 
   namespace  {
     class Hint {
@@ -39,6 +39,12 @@ title __GREEKINTELLIJ's Class Diagram__\n
   
 
   namespace  {
+    class SoundController {
+    }
+  }
+  
+
+  namespace  {
     class Space {
     }
   }
@@ -50,13 +56,17 @@ title __GREEKINTELLIJ's Class Diagram__\n
   }
   
 
+  Logbook o-- Main : main
   Main -up-|> processing.core.PApplet
+  Main o-- SoundController : correct
   Main o-- Room : currentRoom
+  Main o-- SoundController : interact
   Main o-- Logbook : l1
   Main o-- Player : p1
   Main o-- Quiz : q1
-  Main o-- TextBox : t1
+  Main o-- SoundController : wrong
   Player o-- Main : main
+  Player o-- TextBox : t1
   Quiz o-- Main : main
   Room o-- Logbook : log
   Space o-- Room : r
