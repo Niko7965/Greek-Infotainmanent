@@ -14,13 +14,13 @@ d
 2h3
 2h4
 #3
-3h1
+Det Alexandrinske bibliotek indeholdt i alt over 500.000 bøger og bogruller.
 3h2
 3h3
-3h4
+Det Alexandrinske bibliotek brændte sammen af ukendte årsager i år 47 f.Kr.
 #4
-4h1
-4h2
+På Akropolis kunne man udover Propylæerne, altså indgangsbygningen til Athens Akropolis, også finde Parthenon, Niketemplet, Erechtheion, Athena Promachos og Artemis temenos.
+Akropolis var tidligere kendt som Kekrops
 4h3
 4h4
 #5
@@ -39,15 +39,15 @@ Prometheus stjal ild fra guderne og gav det til menneskene.;Prometheus blev stra
 7h3
 7h4
 #8
-8h1
-Pythagoras kommer fra den græske bystat Samos; Pythagoras læresætning beskriver forholdet mellem siderne i en retvinklet trekant; Pythagoras var matematiker men blev betragtet som en filosof eller profet da han ikke talte om sin viden;
+x
+Pythagoras kommer fra den græske bystat Samos;Pythagoras læresætning beskriver forholdet mellem siderne i en retvinklet trekant;Pythagoras var matematiker men blev betragtet som en filosof eller profet da han ikke talte om sin viden;
 8h3
-8h4
+Det Alexandrinske bibliotek blev grundlagt omkring år 280 f.Kr. af Ptolemaios 2.;Det anses for at være oldtidens vigtigste lærdomscenter.
 #9
 x
 x
-x
-x
+Perikles stod i spidsen for genopførslen af flere templer på Akropolis mellem 460-430 f.Kr.
+Perserriget invaderede Akropolis i 480 f.Kr. hvor de ødelagde mange bygninger på Akropolis
 #10
 x
 x
@@ -72,7 +72,7 @@ x
 “Pythagoras’ læresætning er [a^2 + b^2 = c^2]; Pythagoras skrev intet ned og forbød sine elever at tale om hans læren for at det ikke skulle blive til udenadslære”
 x
 x
-x
+Akropolis betyder ‘høj by’ eller ‘fæstning på en høj’
 #15
 x
 x
