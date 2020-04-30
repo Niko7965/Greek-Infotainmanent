@@ -40,7 +40,7 @@ d
 7h4
 #8
 8h1
-8h2
+Pythagoras kommer fra den græske bystat Samos; Pythagoras læresætning beskriver forholdet mellem siderne i en retvinklet trekant; Pythagoras var matematiker men blev betragtet som en filosof eller profet da han ikke talte om sin viden;
 8h3
 8h4
 #9
@@ -69,7 +69,7 @@ x
 x
 x
 #14
-x
+“Pythagoras’ læresætning er [a^2 + b^2 = c^2]; Pythagoras skrev intet ned og forbød sine elever at tale om hans læren for at det ikke skulle blive til udenadslære”
 x
 x
 x
@@ -95,7 +95,7 @@ x
 x
 #19
 x
-x
+Perikles var politiker og krigsgeneral; Perikles har indført demokratiet og folkedomstolen i Athen; Perikles genopbyggede flere templer og statuer på Akropolis
 x
 x
 #20
