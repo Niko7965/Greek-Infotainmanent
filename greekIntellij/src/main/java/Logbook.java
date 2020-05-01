@@ -98,7 +98,7 @@ public class Logbook {
 
     public void getHints(int n){
         hintsToLines();
-        text = "Dette er en logbog hvor alle de informationer du finder vil blive skrevet ned";
+        text = "Dette er en logbog hvor alle de informationer du finder vil blive skrevet ned \n";
         text = text+ "Du kan bruge piletasterne til at navigere i logbogen \n \n";
         for (int i = 0; i <18;i++) {
             if(i<hintLines.size()){
