@@ -55,7 +55,7 @@ public class TextBox {
         core.textSize(core.width/38);
         core.textAlign(core.LEFT,core.TOP);
         core.fill(255,255,255,255);
-        core.text(text,space*3,core.height-core.height/4+space,core.width-space*3,core.height-space);
+        core.text(text,space*3,core.height-core.height/4+space*2,core.width-space*3,core.height-space);
     }
 
 
