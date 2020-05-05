@@ -90,7 +90,6 @@ public class Room {
             if(c == black) {
                 spaces.add(new Space(spaces.size(), true,false, 0,this));
             }
-
             else if(c == yellow){
                 spaces.add(new Space(spaces.size(),true,false,1,this));
             }
@@ -106,10 +105,6 @@ public class Room {
             else if(c == purple){
                 spaces.add(new Space(spaces.size(),false,true,0,this));
             }
-
-
-
-
 
             else {
                 spaces.add(new Space(spaces.size(), false,false, 0,this));
