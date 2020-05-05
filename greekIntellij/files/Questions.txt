@@ -16,8 +16,8 @@
 1;Hvad var årsagen til Hypatia af Alexandrias død?;Mord ud fra et politisk motiv af en kristen pøbel;Utilsigtet drab under en persisk belejring af Alexandria;En form for pest, der var blevet udbredt i Egypten;Lynchning forårsaget af, at hendes filosofi stod i modstrid med kristendommen
 1;Hvem rådgav Hypatia af Alexandria under den politisk-religiøse konflikt i Alexandria?;Præfekt Orestes;Biskop Kyrillos;Biskop Theophilus;Cæsar Theodosius II;
 1;Hvilket tilnavn fik Sapfo af romerske digtere som Horace og Catul?;Den tiende muse;Oraklet;Fornuften;Gaias datter
-1;Hvad er De ni muser?;Ni gudinder for inspiration;Vogterne som beskytter hver af de ni indgange til underverdenen;Et tilnavn man har givet de ni mest fremtrædende filosoffer fra det oldtidens Grækenland;De ni forskellige aspekter af sjælen, som de gamle grækere mente udgjorde menneskets personlighed
+1;Hvad er De ni muser?;Ni gudinder for inspiration;Vogterne til underverdenens ni indgange;Et tilnavn man har givet de ni mest fremtrædende græske filosoffer;De ni forskellige aspekter af sjælen, som udgør menneskets personlighed
 1;Hvilken form for romantisk kærlighed er Sapfos digte kendt for at skildre?;Kærlighed mellem to kvinder dsv. lesbisk kærlighed;Kærlighed mellem to mænd;Kærlighed mellem en lærling og en mentor;Kærlighed mellem en gud og en dødelig
 1;Hvilket tilnavn gav Platon sin elev Aristoteles?;Fornuften;Evigheden;Fantasien;Ungdommen
-1;Hvad stjal Prometheus fra guderne og gav til menneskene?Ilden;Sjælen;Filosofi;Videnskab
-1;Hvad var Prometheus' straf for sin oprørske handling mod guderne?Han blev lænket til en sten, hvor en ørn vil æde hans lever;Han blev dømt til at bære himmelhvælvingen til evig tid;Han blev forvist til Tartarus, fængslet for titanerne;Alt hvad han rørte ved, ville blive forvandlet til guld
+1;Hvad stjal Prometheus fra guderne og gav til menneskene?;Ilden;Sjælen;Filosofi;Videnskab
+1;Hvad var Prometheus' straf for sin oprørske handling mod guderne?;Han blev lænket til en sten, hvor en ørn vil æde hans lever;Han blev dømt til at bære himmelhvælvingen til evig tid;Han blev forvist til Tartarus, titanernes fængsel;Alt hvad han rørte ved, ville blive forvandlet til guld

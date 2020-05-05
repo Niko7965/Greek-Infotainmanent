@@ -128,14 +128,11 @@ public class Player {
                 if (interacting == 7) {
                     interacting = 0;
                     main.bossMode = false;
-
-                    core.link("https://www.youtube.com/watch?v=eVTXPUF4Oz4");
                     main.gameOver();
                 }
                 if (interacting == 11) {
                     interacting = 0;
                     main.bossMode = false;
-                    core.link("https://www.youtube.com/watch?v=1Bix44C1EzY");
                     main.gameOver();
                 }
 
