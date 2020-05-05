@@ -1,23 +1,24 @@
-1;Hvem skrev digte på øen Lesbos?;Sapfo;Virgil;Horats;Orpheus
-1;Hvad er Pythagoras læresætning?;a^2+b^2=c^2;a^2=b^2+c^2;a^2+b^2+c^2=0;a^2*b^2=c^2*d^2
-1;Hvad beskriver pythagoras læresætning?;Forholdet mellem siderne i en retvinklet trekant;Forholdet mellem siderne i en ligebenet trekant;Forholdet mellem siderne i en kvadrat;Forholdet mellem siderne i en sekskant
-1;Hvilke af disse udsagn passer om Pythagoras?;Han skrev intet ned, så hans undervisning ikke skulle blive til udenadslære;Han mødte op til sine elevers huse midt om natten for at teste deres viden;Han holdt offentlige taler på gaden for at dele sin lærdom med befolkningen;Han blev henrettet i 495 f.Kr. fordi hans lærdom blev anset som djævelens værk
-1;Hvad lavede Perikles?;Han var politiker og general;Han var løjtnant på den Athenske flåde;Han var konge af Sparta;Han var en gud over trolddom
-1;Hvad var Perikles især kendt for at indføre i Athen?;Demokratiet;Autokratiet;De græske guder;Kristendommen
-1;Hvor mange bøger regnes Alexandria at have haft?;500.000 til 1.000.000 bøger;5.000 til 10.000 bøger;20.000 til 50.000 bøger;Over 1.000.000 bøger
-1;Hvornår regner man med at det Alexandrinske bibliotek brændte?;I år 47 f.Kr.;I år 1 f.Kr.;I år 131 f.kr;Trickspørgsmål, det brændte ikke;
-1;Hvilket sted menes at have været oldtidens vigtigste lærdomscenter?;Det Alexandrinske Bibliotek;Parthenon;Det Deliske Søforbund;Athen;
-1;Hvad er en akropolis?;En by eller fæstning placeret på en høj;Et tempel man tilbeder Kekrops i;En sø med rent vand der er dybere end 460 meter;Et tempel med mindst 8 søjler ved indgangen
-1;Hvilken attraktion kunne man ikke finde på Akropolis?;Templet for den Olympiske Zeus;Niketemplet;Athena Promachos;Partheon
-1;Hvilke af disse udsagn passer om Akropolis?;Perserriget angreb og ødelagde mange bygninger på Akropolis i 480 f.Kr.;Det Alexandrinske bibliotek stod på Akropolis før det blev ødelagt i 47 f.Kr.;Man brugte Akropolis til at aflejre fæces fra toiletterne i Athen.;Det var en af de få byer, man kunne finde den sjældne blomst “silene tomentosa”
-1;Hvornår blev bygningerne på Akropolis genopbygget?;Omkring tidsrummet 460-430 f.Kr af statsmanden Perikles;I 480 f.Kr. af perserkongen Kyros den Store;Fra 1972-1994 af den Græske NHRF;Omkring år 495 f.Kr. af Pythagoras.
-1;Hvilken matematiker var Hypatia af Alexandria datter af?;Theon;Pythagoras;Euclid;Arkimedes
-1;Hvilken filosofi underviste Hypatia af Alexandria i?;Nyplatonisme;Hedonisme;Hellenisme;Stoicisme
-1;Hvad var årsagen til Hypatia af Alexandrias død?;Mord ud fra et politisk motiv af en kristen pøbel;Utilsigtet drab under en persisk belejring af Alexandria;En form for pest, der var blevet udbredt i Egypten;Lynchning forårsaget af, at hendes filosofi stod i modstrid med kristendommen
-1;Hvem rådgav Hypatia af Alexandria under den politisk-religiøse konflikt i Alexandria?;Præfekt Orestes;Biskop Kyrillos;Biskop Theophilus;Cæsar Theodosius II;
-1;Hvilket tilnavn fik Sapfo af romerske digtere som Horace og Catul?;Den tiende muse;Oraklet;Fornuften;Gaias datter
-1;Hvad er De ni muser?;Ni gudinder for inspiration;Vogterne til underverdenens ni indgange;Et tilnavn man har givet de ni mest fremtrædende græske filosoffer;De ni forskellige aspekter af sjælen, som udgør menneskets personlighed
-1;Hvilken form for romantisk kærlighed er Sapfos digte kendt for at skildre?;Kærlighed mellem to kvinder dsv. lesbisk kærlighed;Kærlighed mellem to mænd;Kærlighed mellem en lærling og en mentor;Kærlighed mellem en gud og en dødelig
-1;Hvilket tilnavn gav Platon sin elev Aristoteles?;Fornuften;Evigheden;Fantasien;Ungdommen
-1;Hvad stjal Prometheus fra guderne og gav til menneskene?;Ilden;Sjælen;Filosofi;Videnskab
-1;Hvad var Prometheus' straf for sin oprørske handling mod guderne?;Han blev lænket til en sten, hvor en ørn vil æde hans lever;Han blev dømt til at bære himmelhvælvingen til evig tid;Han blev forvist til Tartarus, titanernes fængsel;Alt hvad han rørte ved, ville blive forvandlet til guld
+20;Hvem skrev digte på øen Lesbos?;Sapfo;Virgil;Horats;Orpheus
+14;Hvad er Pythagoras læresætning?;a^2+b^2=c^2;a^2=b^2+c^2;a^2+b^2+c^2=0;a^2*b^2=c^2*d^2
+14;Hvad beskriver pythagoras læresætning?;Forholdet mellem siderne i en retvinklet trekant;Forholdet mellem siderne i en ligebenet trekant;Forholdet mellem siderne i en kvadrat;Forholdet mellem siderne i en sekskant
+8;Hvilke af disse udsagn passer om Pythagoras?;Han skrev intet ned, så hans undervisning ikke skulle blive til udenadslære;Han mødte op til sine elevers huse midt om natten for at teste deres viden;Han holdt offentlige taler på gaden for at dele sin lærdom med befolkningen;Han blev henrettet i 495 f.Kr. fordi hans lærdom blev anset som djævelens værk
+19;Hvad lavede Perikles?;Han var politiker og general;Han var løjtnant på den Athenske flåde;Han var konge af Sparta;Han var en gud over trolddom
+19;Hvad var Perikles især kendt for at indføre i Athen?;Demokratiet;Autokratiet;De græske guder;Kristendommen
+3;Hvor mange bøger regnes Alexandria at have haft?;500.000 til 1.000.000 bøger;5.000 til 10.000 bøger;20.000 til 50.000 bøger;Over 1.000.000 bøger
+3;Hvornår regner man med at det Alexandrinske bibliotek brændte?;I år 47 f.Kr.;I år 1 f.Kr.;I år 131 f.kr;Trickspørgsmål, det brændte ikke;
+3;Hvilket sted menes at have været oldtidens vigtigste lærdomscenter?;Det Alexandrinske Bibliotek;Parthenon;Det Deliske Søforbund;Athen;
+14;Hvad er en akropolis?;En by eller fæstning placeret på en høj;Et tempel man tilbeder Kekrops i;En sø med rent vand der er dybere end 460 meter;Et tempel med mindst 8 søjler ved indgangen
+4;Hvilken attraktion kunne man ikke finde på Akropolis?;Templet for den Olympiske Zeus;Niketemplet;Athena Promachos;Partheon
+4;Hvilke af disse udsagn passer om Akropolis?;Perserriget angreb og ødelagde mange bygninger på Akropolis i 480 f.Kr.;Det Alexandrinske bibliotek stod på Akropolis før det blev ødelagt i 47 f.Kr.;Man brugte Akropolis til at aflejre fæces fra toiletterne i Athen.;Det var en af de få byer, man kunne finde den sjældne blomst “silene tomentosa”
+9;Hvornår blev bygningerne på Akropolis genopbygget?;Omkring tidsrummet 460-430 f.Kr af statsmanden Perikles;I 480 f.Kr. af perserkongen Kyros den Store;Fra 1972-1994 af den Græske NHRF;Omkring år 495 f.Kr. af Pythagoras.
+3;Hvilken matematiker var Hypatia af Alexandria datter af?;Theon;Pythagoras;Euclid;Arkimedes
+3;Hvilken filosofi underviste Hypatia af Alexandria i?;Nyplatonisme;Hedonisme;Hellenisme;Stoicisme
+17;Hvad var årsagen til Hypatia af Alexandrias død?;Mord ud fra et politisk motiv af en kristen pøbel;Utilsigtet drab under en persisk belejring af Alexandria;En form for pest, der var blevet udbredt i Egypten;Lynchning forårsaget af, at hendes filosofi stod i modstrid med kristendommen
+17;Hvem rådgav Hypatia af Alexandria under den politisk-religiøse konflikt i Alexandria?;Præfekt Orestes;Biskop Kyrillos;Biskop Theophilus;Cæsar Theodosius II;
+20;Hvilket tilnavn fik Sapfo af romerske digtere som Horace og Catul?;Den tiende muse;Oraklet;Fornuften;Gaias datter
+20;Hvad er De ni muser?;Ni gudinder for inspiration;Vogterne til underverdenens ni indgange;Et tilnavn man har givet de ni mest fremtrædende græske filosoffer;De ni forskellige aspekter af sjælen, som udgør menneskets personlighed
+20;Hvilken form for romantisk kærlighed er Sapfos digte kendt for at skildre?;Kærlighed mellem to kvinder dsv. lesbisk kærlighed;Kærlighed mellem to mænd;Kærlighed mellem en lærling og en mentor;Kærlighed mellem en gud og en dødelig
+13;Hvilket tilnavn gav Platon sin elev Aristoteles?;Fornuften;Evigheden;Fantasien;Ungdommen
+5;Hvad stjal Prometheus fra guderne og gav til menneskene?;Ilden;Sjælen;Filosofi;Videnskab
+5;Hvad var Prometheus' straf for sin oprørske handling mod guderne?;Han blev lænket til en sten, hvor en ørn vil æde hans lever;Han blev dømt til at bære himmelhvælvingen til evig tid;Han blev forvist til Tartarus, titanernes fængsel;Alt hvad han rørte ved, ville blive forvandlet til guld
+0;Hvad hedder den græske gud for lyn og torden?;Zeus;Thor;Jupiter;Izanagi
