@@ -125,20 +125,6 @@ public class Main extends PApplet {
             }
 
         }
-        /*
-        if(key =='a' || key =='A'|| key == BACKSPACE){
-            p1.moveLeft=true;
-        }
-        if(key =='d' || key =='D'){
-            p1.moveRight=true;
-        }
-        if(key =='w' || key =='W'){
-            p1.moveUp=true;
-        }
-        if(key =='s'||key =='S'){
-            p1.moveDown=true;
-        }
-        */
 
         if(key == ' '){
             p1.interact();
@@ -146,10 +132,12 @@ public class Main extends PApplet {
         }
 
         if(key == 'l'||key =='L'){
-            l1.logbookActive=!l1.logbookActive;
-            l1.page =0;
-            l1.getHints(l1.page);
-            System.out.println(getTimeMin());
+            if(bossMode==false && p1.interacting==0) {
+                l1.logbookActive = !l1.logbookActive;
+                l1.page = 0;
+                l1.getHints(l1.page);
+                System.out.println(getTimeMin());
+            }
         }
     }
 
@@ -178,23 +166,6 @@ public class Main extends PApplet {
 
         }
 
-        /*
-        if(key =='a' || key =='A'|| key == UP){
-            p1.moveLeft=false;
-        }
-        if(key =='d' || key =='D'){
-            p1.moveRight=false;
-        }
-        if(key =='w' || key =='W'){
-            p1.moveUp=false;
-        }
-        if(key =='s'||key =='S'){
-            p1.moveDown=false;
-        }
-        if(key =='q'||key =='Q'){
-            //triggerQuiz();
-        }
-         */
     }
 
     public int getKeyCode(){
