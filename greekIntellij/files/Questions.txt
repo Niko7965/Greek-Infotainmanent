@@ -8,6 +8,7 @@
 3;Hvornår regner man med at det Alexandrinske bibliotek brændte?;I år 47 f.Kr.;I år 1 f.Kr.;I år 131 f.kr;Trickspørgsmål, det brændte ikke;
 3;Hvilket sted menes at have været oldtidens vigtigste lærdomscenter?;Det Alexandrinske Bibliotek;Parthenon;Det Deliske Søforbund;Athen;
 14;Hvad er en akropolis?;En by eller fæstning placeret på en høj;Et tempel man tilbeder Kekrops i;En sø med rent vand der er dybere end 460 meter;Et tempel med mindst 8 søjler ved indgangen
+0;Hvad hedder den græske gud for lyn og torden?;Zeus;Thor;Jupiter;Raijin
 4;Hvilken attraktion kunne man ikke finde på Akropolis?;Templet for den Olympiske Zeus;Niketemplet;Athena Promachos;Partheon
 4;Hvilke af disse udsagn passer om Akropolis?;Perserriget angreb og ødelagde mange bygninger på Akropolis i 480 f.Kr.;Det Alexandrinske bibliotek stod på Akropolis før det blev ødelagt i 47 f.Kr.;Man brugte Akropolis til at aflejre fæces fra toiletterne i Athen.;Det var en af de få byer, man kunne finde den sjældne blomst “silene tomentosa”
 9;Hvornår blev bygningerne på Akropolis genopbygget?;Omkring tidsrummet 460-430 f.Kr af statsmanden Perikles;I 480 f.Kr. af perserkongen Kyros den Store;Fra 1972-1994 af den Græske NHRF;Omkring år 495 f.Kr. af Pythagoras.
@@ -21,4 +22,3 @@
 13;Hvilket tilnavn gav Platon sin elev Aristoteles?;Fornuften;Evigheden;Fantasien;Ungdommen
 5;Hvad stjal Prometheus fra guderne og gav til menneskene?;Ilden;Sjælen;Filosofi;Videnskab
 5;Hvad var Prometheus' straf for sin oprørske handling mod guderne?;Han blev lænket til en sten, hvor en ørn vil æde hans lever;Han blev dømt til at bære himmelhvælvingen til evig tid;Han blev forvist til Tartarus, titanernes fængsel;Alt hvad han rørte ved, ville blive forvandlet til guld
-0;Hvad hedder den græske gud for lyn og torden?;Zeus;Thor;Jupiter;Izanagi
