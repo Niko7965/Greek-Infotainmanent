@@ -40,6 +40,12 @@ public class Quiz {
         sphinx = core.loadImage("Images/Sprites/sphinx.jpg");
     }
 
+    public void activateBoss() {
+        maxLevel = core.round(core.random(10,questionNumbers()));
+        level = maxLevel-10;
+        activateQuiz(level, core.random(0, 4));
+    }
+
     public void activateQuiz(int quizNumber, float correctPlacement) {
         this.correctPlacement = correctPlacement;
         this.quizNumber = quizNumber;
@@ -47,11 +53,7 @@ public class Quiz {
         resultsTimer = 50;
     }
 
-    public void activateBoss() {
-        maxLevel = core.round(core.random(10,questionNumbers()));
-        level = maxLevel-10;
-        activateQuiz(level, core.random(0, 4));
-    }
+
 
     public void drawSphinx() {
         //Sphinx billede
@@ -173,7 +175,6 @@ public class Quiz {
             maxX = core.width / 2 + space;
             minX = core.width - space * 4;
         }
-
         if (placement == 1 || placement == 3) {
             maxY = core.height - core.height / 4 + space * 2;
             minY = core.height - core.height / 8 - space;

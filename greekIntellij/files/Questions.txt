@@ -8,6 +8,7 @@
 3;Hvornår regner man med at det Alexandrinske bibliotek brændte?;I år 47 f.Kr.;I år 1 f.Kr.;I år 131 f.kr;Trickspørgsmål, det brændte ikke;
 3;Hvilket sted menes at have været oldtidens vigtigste lærdomscenter?;Det Alexandrinske Bibliotek;Parthenon;Det Deliske Søforbund;Athen;
 14;Hvad er en akropolis?;En by eller fæstning placeret på en høj;Et tempel man tilbeder Kekrops i;En sø med rent vand der er dybere end 460 meter;Et tempel med mindst 8 søjler ved indgangen
+24;Hvilken overnaturlig kraft besad Pythia?;At kunne spå fremtiden; At kunne genoplive de døde; At kunne læse tanker; At kunne skifte form
 0;Hvad hedder den græske gud for lyn og torden?;Zeus;Thor;Jupiter;Raijin
 4;Hvilken attraktion kunne man ikke finde på Akropolis?;Templet for den Olympiske Zeus;Niketemplet;Athena Promachos;Partheon
 4;Hvilke af disse udsagn passer om Akropolis?;Perserriget angreb og ødelagde mange bygninger på Akropolis i 480 f.Kr.;Det Alexandrinske bibliotek stod på Akropolis før det blev ødelagt i 47 f.Kr.;Man brugte Akropolis til at aflejre fæces fra toiletterne i Athen.;Det var en af de få byer, man kunne finde den sjældne blomst “silene tomentosa”

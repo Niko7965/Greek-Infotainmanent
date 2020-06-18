@@ -99,10 +99,11 @@ public class Main extends PApplet {
        if(quizMode) {
            q1.drawQuiz();
        }
-            p1.drawHUD();
 
         if(l1.logbookActive){
             l1.drawTextBox();
+        }else{
+            p1.drawHUD();
         }
     }
 
